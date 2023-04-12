@@ -1,0 +1,38 @@
+<html>
+{% load static %}
+ <head>
+  <title> 하이퍼 회원가입 페이지 </title>
+      <link rel ="stylesheet"  href="{% static 'css/join.css'%}">
+ </head>
+ <body>
+ <div class='signup-form'>
+        <h3>회원가입 페이지</h3>
+        <div>
+
+        <!-- 아래 hidden check-->
+        <a id="h1_user_id" type="hidden">{{ request.session.user_id }}<a>
+               <form method="post" action="complete_join">
+                   {% csrf_token %}
+                   <input type="text" name="name" class="name" placeholder="이름을 입력해 주세요" style="width:400px;height:40px;font-size:18px;" required><br>
+                   <input type="text" name="ID" placeholder="아이디를 입력해주세요" style="width:400px;height:40px;font-size:18px;" required><br>
+                   <input type="password" name="userpassword"  placeholder="패스워드를 입력해주세요" style="width:400px;height:40px;font-size:18px;" required><br>
+                   <input type="submit" style="background:black; width:100px;height:40px;font-size:18px;" class="submit" value="가입하기"  placeholder="가입하기">
+               </form>
+        </div>
+ </body>
+<script src="{% static 'js/core/jquery-3.6.4.min.js' %}"></script>
+<script>
+    // JQuery 세션에 있는 거 확인
+    $(document).ready(function(){
+        var user_id = $("#h1_user_id").text();
+        alert(user_id);
+        alert("경고3");
+        if(user_id!=null){
+            alert("이미 로그인 상태입니다.");
+            location.href=" {% url 'main'%}";
+        }
+    })
+
+</script>
+
+</html>
