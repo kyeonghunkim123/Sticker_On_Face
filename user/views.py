@@ -35,3 +35,28 @@ def login_complete(request):
 
 
     return render(request, "main.html")
+
+
+
+def checkTel(data):
+    tel = data["tel"]
+    result = ""
+
+    conn = pymysql.connect(host='130.162.154.239', user='dev', password=dev_ps, db='tilburg_club', charset='utf8')
+    cur = conn.cursor()
+
+    sql_select = 'select usernum from userTable where phonenum = (%s)'
+    val = (tel,)
+    temp1 = cur.execute(sql_select, val)
+
+    row = cur.fetchone()
+
+
+    temp = a ? temp1 == None : False
+    if (check){
+    result = "success";
+    } else {
+    result = "false";
+    }
+    return result;
+

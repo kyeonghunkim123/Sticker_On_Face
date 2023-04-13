@@ -11,11 +11,12 @@
 
         <!-- 아래 hidden check-->
         <a id="h1_user_id" type="hidden">{{ request.session.user_id }}<a>
-               <form method="post" action="complete_join">
+               <form method="post" action="complete_join" name="joinForm">
                    {% csrf_token %}
                    <input type="text" name="name" class="name" placeholder="이름을 입력해 주세요" style="width:400px;height:40px;font-size:18px;" required><br>
                    <input type="text" name="ID" placeholder="아이디를 입력해주세요" style="width:400px;height:40px;font-size:18px;" required><br>
                    <input type="password" name="userpassword"  placeholder="패스워드를 입력해주세요" style="width:400px;height:40px;font-size:18px;" required><br>
+                   <input type="tel" id="phoneNum" name="phoneNum" placeholder="핸드폰 번호 입력해주세요" style="width:400px;height:40px;font-size:18px;" required><br>
                    <input type="submit" style="background:black; width:100px;height:40px;font-size:18px;" class="submit" value="가입하기"  placeholder="가입하기">
                </form>
         </div>
@@ -33,6 +34,39 @@
         }
     })
 
+</script>
+<script>
+    /**
+ * 	회원가입
+ */
+var check =false;
+var form = document.joinForm;
+var smsCheck = false;
+
+function a (){
+
+}
+adon.a()
+$().asdfasdf()
+$("input#btnCheckSMS").on("click", () => {
+    let memberTel = $('input#phoneNum').val();
+    $.ajax({
+        url:"/user/checkTel",
+        type:"post",
+        data:{"memberTel":memberTel},
+        success:function(result){
+            if(result=="success"){
+                checksms();
+
+            }else if(result=="false"){
+                alert("중복된 핸드폰 번호입니다.");
+                $("input#memberTel").val("");
+                form.memberTel.focus();
+                return;
+            }
+        }
+    })
+})
 </script>
 
 </html>
