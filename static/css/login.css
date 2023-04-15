@@ -1,0 +1,15 @@
+@import url("common.css");
+.login_card {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+}
+
+form > button {
+    width: 100%;
+}

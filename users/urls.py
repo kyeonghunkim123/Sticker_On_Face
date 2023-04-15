@@ -4,6 +4,6 @@ import users
 
 import users.views as uv
 
-# urlpatterns = [
-#     path()
-# ]
+urlpatterns = [
+    path('login', uv.login),
+]
