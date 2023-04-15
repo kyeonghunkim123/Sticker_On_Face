@@ -7,6 +7,5 @@ import platform
 
 
 # Create your views here.
-
-def mainpage (requset):
-    return render(requset,"users/mainpage.html")
+def login(request):
+    return render(request, "login.html")

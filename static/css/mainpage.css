@@ -1,0 +1,374 @@
+@import url("common.css");
+
+/* Features */
+
+	.features > a {
+		-moz-transition: background-color 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out;
+		display: -moz-flex;
+		display: -webkit-flex;
+		display: -ms-flex;
+		display: flex;
+		-moz-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		max-width: 100%;
+		padding: 3rem;
+		position: relative;
+		text-decoration: none;
+		z-index: 103;
+	}
+
+		.features > a h2 {
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			-ms-flex-shrink: 0;
+			flex-shrink: 0;
+			color: #ffffff;
+			width: 100%;
+		}
+
+			@media screen and (max-width: 736px) {
+
+				.features > a h2 {
+					margin-bottom: 0.75rem;
+				}
+
+			}
+
+		.features > a p {
+			-moz-flex-grow: 1;
+			-webkit-flex-grow: 1;
+			-ms-flex-grow: 1;
+			flex-grow: 1;
+			-moz-flex-shrink: 1;
+			-webkit-flex-shrink: 1;
+			-ms-flex-shrink: 1;
+			flex-shrink: 1;
+			-moz-align-self: center;
+			-webkit-align-self: center;
+			-ms-align-self: center;
+			align-self: center;
+			color: #ffffff;
+			width: calc(100% - 5rem);
+		}
+
+			.features > a p:last-child {
+				margin: 0;
+			}
+
+		.features > a:after {
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 0;
+			-webkit-flex-shrink: 0;
+			-ms-flex-shrink: 0;
+			flex-shrink: 0;
+			-moz-align-self: center;
+			-webkit-align-self: center;
+			-ms-align-self: center;
+			align-self: center;
+			color: #ffffff;
+			content: '\f0a9';
+			font-family: 'Font Awesome 5 Free';
+			font-size: 3.5rem;
+			font-weight: 900;
+			line-height: 1;
+			margin-left: 1.5rem;
+			text-align: right;
+			width: 3.5rem;
+		}
+
+			@media screen and (max-width: 736px) {
+
+				.features > a:after {
+					font-size: 3rem;
+				}
+
+			}
+
+		.features > a.accent1 {
+			background: #df7467;
+		}
+
+			.features > a.accent1:hover {
+				background: #d01a18;
+			}
+
+		.features > a.accent2 {
+			background: #FFD5A6;
+		}
+
+			.features > a.accent2:hover {
+				background: #EF9F5B;
+			}
+
+		.features > a.accent3 {
+			background: #FFAAAF;
+		}
+
+			.features > a.accent3:hover {
+				background: #FF7A85;
+			}
+
+		.features > a.alt {
+			background: rgba(185, 23, 21, 0.95);
+			padding: 3rem;
+			width: 47rem;
+		}
+
+			.features > a.alt h2 {
+				font-size: 3rem;
+			}
+
+			.features > a.alt p {
+				font-size: 1.25rem;
+				width: calc(100% - 6rem);
+			}
+
+			.features > a.alt:after {
+				font-size: 4.5rem;
+				line-height: 1;
+				width: 4.5rem;
+			}
+
+			@media screen and (max-width: 736px) {
+
+				.features > a.alt {
+					padding: 2rem;
+					width: 100%;
+				}
+
+					.features > a.alt h2 {
+						font-size: 2.5rem;
+					}
+
+					.features > a.alt p {
+						font-size: 1rem;
+					}
+
+					.features > a.alt:after {
+						font-size: 3.5rem;
+						text-align: right;
+					}
+
+			}
+
+			@media screen and (max-width: 480px) {
+
+				.features > a.alt h2 {
+					font-size: 2rem;
+				}
+
+				.features > a.alt:after {
+					display: none;
+				}
+
+			}
+
+		@media screen and (max-width: 736px) {
+
+			.features > a {
+				padding: 2rem;
+			}
+
+		}
+
+
+
+/* Section */
+
+	section header {
+		margin-bottom: 2.5rem;
+	}
+
+		section header h1 {
+			margin-bottom: 1rem;
+		}
+
+			section header h1 + p {
+				font-size: 1.75rem;
+				letter-spacing: -0.025em;
+			}
+
+				@media screen and (max-width: 736px) {
+
+					section header h1 + p {
+						font-size: 1.25rem;
+					}
+
+				}
+
+	header h1 + p {
+		color: #aeaeae;
+	}
+
+
+
+
+
+/* Main */
+
+	#main {
+		padding: 7rem 0 5rem 0 ;
+	}
+
+		#main .inner {
+			display: -moz-flex;
+			display: -webkit-flex;
+			display: -ms-flex;
+			display: flex;
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			#main {
+				padding: 4rem 0 2rem 0 ;
+			}
+
+				#main .inner {
+					-moz-flex-wrap: wrap;
+					-webkit-flex-wrap: wrap;
+					-ms-flex-wrap: wrap;
+					flex-wrap: wrap;
+					-moz-flex-direction: row;
+					-webkit-flex-direction: row;
+					-ms-flex-direction: row;
+					flex-direction: row;
+				}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#main {
+				padding: 3rem 0 1rem 0 ;
+			}
+
+		}
+
+	#content {
+		-moz-flex-grow: 1;
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+		-moz-flex-shrink: 1;
+		-webkit-flex-shrink: 1;
+		-ms-flex-shrink: 1;
+		flex-shrink: 1;
+		min-width: 0;
+		width: 100%;
+	}
+
+		#content > section {
+			border-top: solid 6px #df7467;
+			margin-top: 5.5rem;
+			padding-top: 4.5rem;
+		}
+
+			#content > section:first-child {
+				margin-top: 0;
+			}
+
+		@media screen and (max-width: 1280px) {
+
+			#content > section:first-child {
+				border: none;
+				padding-top: 0;
+			}
+
+		}
+
+	#sidebar {
+		margin-left: 4rem;
+		min-width: 25rem;
+		width: 25rem;
+		-moz-flex-grow: 0;
+		-webkit-flex-grow: 0;
+		-ms-flex-grow: 0;
+		flex-grow: 0;
+		-moz-flex-shrink: 0;
+		-webkit-flex-shrink: 0;
+		-ms-flex-shrink: 0;
+		flex-shrink: 0;
+	}
+
+		#sidebar > section {
+			border-top: solid 6px #df7467;
+			margin-top: 4rem;
+			padding-top: 3rem;
+		}
+
+			#sidebar > section:first-child {
+				border-top: 0;
+				margin-top: 0;
+				padding-top: 0;
+			}
+
+		@media screen and (max-width: 1280px) {
+
+			#sidebar {
+				display: -moz-flex;
+				display: -webkit-flex;
+				display: -ms-flex;
+				display: flex;
+				-moz-flex-wrap: wrap;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				-moz-justify-content: space-between;
+				-webkit-justify-content: space-between;
+				-ms-justify-content: space-between;
+				justify-content: space-between;
+				margin-left: 0;
+				margin-top: 3rem;
+				min-width: 100%;
+				width: 100%;
+			}
+
+				#sidebar > section {
+					margin-top: 5.5rem;
+					padding-top: 4.5rem;
+					width: 46.5%;
+				}
+
+					#sidebar > section:first-child {
+						margin-top: 5.5rem;
+					}
+
+					#sidebar > section.features {
+						display: -moz-flex;
+						display: -webkit-flex;
+						display: -ms-flex;
+						display: flex;
+						width: 100%;
+					}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			#sidebar > section.features {
+				display: block;
+				width: 100%;
+			}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#sidebar > section {
+				width: 100%;
+			}
+
+		}
+
