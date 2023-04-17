@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sv.mainpage),
     path('users/', include('users.urls')),
+    path('stickers/', include('stickers.urls')),
 
 ]
