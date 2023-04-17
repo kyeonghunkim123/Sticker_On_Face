@@ -1,15 +1,71 @@
 @import url("common.css");
+header {
+    z-index:9;
+}
+#search {
+    height: 60px;
+    position: fixed;
+    background-color: #dcdcdc;
+    z-index:2;
+}
+#search input {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.main {
+    display: relative;
+    background-color: #eee;
+    top: 4.25rem + 60px;
+}
 .login_card {
     position: relative;
+    margin: 150px auto;
+    padding: 20px 40px;
     width: 400px;
     height: 500px;
     text-align: center;
+    border: 2px solid #df7467;
 }
 
-li {
+h1 {
+    padding: 40px auto;
+    fonts-weight: bold;
+    margin: 40px auto;
+}
+ul {
+    padding: 0;
+    padding: 0;
+    display: relative;
+    justify-content: space-between;
+    flex-grow: 0;
+    flex-basis: 1;
+    text-align: center;
+}
+
+ul > li {
+    display: relative;
     display: inline-block;
+    margin-top: 20px;
+    padding: 0;
+    width: 30%;
 }
 
-form > button {
-    width: 100%;
+li a {
+    color: black;
+    text-decoration-line: none;
+}
+
+form > input {
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 10px;
+
+}
+
+form> button {
+    width: 80%;
+    margin-top: 20px;
+    padding: 0 32px;
+    border-radius: 10px;
+    box-sizing: content-box;
 }
