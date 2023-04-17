@@ -5,6 +5,9 @@
 header {
     z-index:9;
 }
+.inner {
+    display: flex;
+}
 #search {
     width: 100%;
     height: 60px;
@@ -26,13 +29,44 @@ header {
     width: 80%;
     right: 0;
 }
+.main_menu {
+    position: relative;
+    margin-top:100px;
+    left: 0;
+    height: 300px;
+    width: 200px;
+    border-top: 4px solid #df7467;
+}
+.main_menu h3 {
+    font-weight: 600;
+    text-align: left;
+    padding-left: 20px;
+}
+.main_menu > ul {
+    margin-top: 0;
+    list-style: none;
+}
+.main_menu > ul > li {
+    width: 100%;
+}
+.main_menu > ul > li > a {
+    display: block;
+    width: 100%;
+}
+.main_menu > ul > li > ul {
+    list-style: square;
+}
+/**/
 #main {
     display: relative;
+}
+#main .inner{
+    position:relative;
 }
 .sign_card {
     position: relative;
     margin: 100px auto;
-    margin-left: 350px;
+    margin-left: 150px;
     padding: 20px 40px;
     width: 400px;
     height: 500px;
@@ -68,17 +102,29 @@ li a {
     text-decoration-line: none;
 }
 
-form > input {
+.sign_card input {
     width: 100%;
-    margin-top: 20px;
-    border-radius: 10px;
 
 }
-
-form> button {
-    width: 80%;
+.sign_card .info {
+    display:flex;
     margin-top: 20px;
+}
+.sign_card #phone {
+    display: inline-block;
+    width: 80%;
+}
+.sign_card #get_id {
+    display: inline-block;
+    width: 20%;
+    border-radius: 10px;
+}
+.sign_card .next {
+    width: 80%;
     padding: 0 32px;
     border-radius: 10px;
     box-sizing: content-box;
+}
+.sign_card > ul > li {
+    width: 100%;
 }
