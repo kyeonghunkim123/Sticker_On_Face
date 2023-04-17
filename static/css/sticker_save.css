@@ -20,7 +20,9 @@ button1{
     background-color: #CACACA;
     font-size: 12px;
     padding:7px;
-    position:fixed; left:50px; top:540px;
+    width:92px;
+    height: 20px;
+    position:fixed; left:50px; top:520px;
     text-align: center;
    
 }
@@ -33,7 +35,10 @@ button{
     background-color: #DF7467;
     font-size: 12px;
     padding:7px;
-    position:fixed; left:50px; top:570px;
+    width:105px;
+    height: 35px;
+    position:fixed; left:50px; top:565px;
+    text-align: center;
 }
 /* 이미지 */
 li {
