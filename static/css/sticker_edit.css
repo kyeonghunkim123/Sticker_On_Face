@@ -67,7 +67,7 @@ li {
     width: 400px; height: 450px; 
     margin:right;
     position:fixed; left:400px; top:45px;
-    background:url("/Sticker/jisoo_cat.png") no-repeat left top;
+    background:url("/static/images/jisoo_cat.png") no-repeat left top;
 
     }
 #face{background-size: contain ;}
@@ -111,7 +111,7 @@ li {
             
     margin:right;
     position:fixed; left:300px; top:550px;
-    background:url("/Sticker/bat.jpg") no-repeat left top;
+    background:url("/static/images/bat.jpg") no-repeat left top;
 
     }
 #bat{background-size: 100% 110% ;}
@@ -121,7 +121,7 @@ li {
     border:3px solid #DF7467;   
     margin:right;
     position:fixed; left:390px; top:551px;
-    background:url("/Sticker/cat.png") no-repeat left top;
+    background:url("/static/images/cat.png") no-repeat left top;
 
     }
 #cat{background-size: contain ;}
@@ -130,7 +130,7 @@ li {
     width: 90px; height: 109px; 
     margin:right;
     position:fixed; left:485px; top:550px;
-    background:url("/Sticker/bear.png") no-repeat left top;
+    background:url("/static/images/bear.png") no-repeat left top;
 
     }
 #bear{background-size: cover ;}
@@ -139,7 +139,7 @@ li {
     width: 90px; height: 109px; 
     margin:right;
     position:fixed; left:575px; top:550px;
-    background:url("/Sticker/bear_nose2.png") no-repeat left top;
+    background:url("/static/images/bear_nose2.png") no-repeat left top;
 
     }
 #bear_nose{background-size: contain ;}
@@ -165,7 +165,7 @@ li {
  /* < */
     margin:right;
     position:fixed; left:282px; top:575px;
-    background:url("/Sticker/pass_left.jpg") no-repeat left top;
+    background:url("/static/images/pass_left.jpg") no-repeat left top;
 
     }
 /* > */
@@ -174,7 +174,7 @@ li {
            
     margin:right;
     position:fixed; left:850px; top:575px;
-    background:url("/Sticker/pass_right.jpg") no-repeat left top;
+    background:url("/static/images/pass_right.jpg") no-repeat left top;
     }
        
 #pass_1{background-size: contain ;}

@@ -53,7 +53,7 @@ li {
     background:rgb(49, 49, 49);
     margin:right;
     position:fixed; left:370px; top:45px;
-    background:url("/Sticker/jisoo_cat.png") no-repeat left top;
+    background:url("/static/images/jisoo_cat.png") no-repeat left top;
 
 }
 #face{background-size: contain ;}
