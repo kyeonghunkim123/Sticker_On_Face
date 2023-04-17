@@ -1,5 +1,5 @@
 """
-URL configuration for Sticker project.
+URL configuration for Sticker_On_Face project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,11 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-import Sticker.views as sv
+import Sticker_On_Face.views as sv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sv.mainpage),
     path('users/', include('users.urls')),
+    path('stickers/', include('stickers.urls')),
 
 ]
