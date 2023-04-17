@@ -8,4 +8,5 @@ import platform
 
 # Create your views here.
 def login(request):
-    return render(request, "login.html")
+    print('1')
+    return render(request, "users/login.html")
