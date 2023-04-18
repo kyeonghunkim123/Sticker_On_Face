@@ -97,7 +97,7 @@
 								<input id="mail" type="email" name="mail" required/>
 							</div>
 							<div class="signup">
-								<button id="signup_button" onclick="check_from()">SIGN UP</button>
+								<button id="signup_button" onclick="return check_from()">SIGN UP</button>
 							</div>
 						</form>
 					</div>
@@ -165,16 +165,24 @@
 			<script src="/static/js/common/util.js"></script>
 			<script src="/static/js/mainpage.js"></script>
 	        <script src="/static/js/users/join.js"></script>
-		<script>
-		function check_from(){
-			let name = document.getElementById("name").value
-			let ID = document.getElementById("user_ID").value
-		    let password = document.getElementById("user_password").value
-			let Email = document.getElementById("mail").value
-			if(name == ''){
-				alert('이름을 입력해 주세요')}
-			else{
-				alert('이름을 다시 입력해주세요')}}
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js">
+		$(function(){
+			$("#checkId").on("click",function(){
+				$.ajax({
+				url:aaaa,
+				data:{user_ID:'aaa'},
+				method:"post",
+				dataType:"json,
+				success:function(response){
+					alert('사용가능한 아이디입니다');
+				},
+				error:function(jqXHR, textStatus, errorThrown){
+					alert('중복되는 아이디가 존재합니다');
+					}
+				});
+			}
+		}
+
 
 		</script>
 	</body>
