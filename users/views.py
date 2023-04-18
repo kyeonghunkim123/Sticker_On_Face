@@ -10,3 +10,9 @@ import platform
 def login(request):
     print('1')
     return render(request, "users/login.html")
+
+def signup(request):
+    return render(request, "users/signup.html")
+
+def find_id(request):
+    return render(request, "users/find_id.html")

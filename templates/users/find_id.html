@@ -7,7 +7,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="/static/css/common.css" />
-		<link rel="stylesheet" href="/static/css/login.css" />
+		<link rel="stylesheet" href="/static/css/find_id.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
 	</head>
 	<body class="is-preload">
@@ -58,17 +58,29 @@
 		<!-- Main -->
 			<div id="main">
 				<div class="inner">
+					<div class="main_menu">
+						<ul>
+							<li><a href="/users/signup"><h3>회원가입</h3></a></li>
+							<li><a href="/users/find_id"><h3>아이디 찾기</h3></a></li>
+							<li><a href="#"><h3>비밀번호 찾기</h3></a></li>
+						</ul>
+					</div>
 					<div class="sign_card">
-						<h1>HYPER</h1>
+						<h1>ID 찾기</h1>
 						<form action="" method="post">
-							<input id="id" type="text" name="id" placeholder="아이디" required/>
-							<input id="pwd" type="password" name="pwd" placeholder="비밀번호" required/>
-							<button>LOGIN</button>
+							<div class="info">
+								<input id="name" type="text" name="name" placeholder="이름" required/>
+							</div>
+							<div class="info">
+								<input id="phone" type="tel" name="phone" placeholder="전화번호" required/>
+								<button id="get_code">인증번호 받기</button>
+							</div>
+							<div class="info">
+								<button class="next">NEXT</button>
+							</div>
 						</form>
 						<ul>
 							<li><a href="#">비밀번호 찾기</a></li>
-							<li><a href="/users/find_id">아이디 찾기</a></li>
-							<li><a href="/users/signup">회원가입</a></li>
 						</ul>
 					</div>
 				</div>
