@@ -97,7 +97,7 @@
 								<input id="mail" type="email" name="mail" required/>
 							</div>
 							<div class="signup">
-								<button id="signup_button">SIGN UP</button>
+								<button id="signup_button" onclick="check_from()">SIGN UP</button>
 							</div>
 						</form>
 					</div>
@@ -164,5 +164,18 @@
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
 			<script src="/static/js/mainpage.js"></script>
+	        <script src="/static/js/users/join.js"></script>
+		<script>
+		function check_from(){
+			let name = document.getElementById("name").value
+			let ID = document.getElementById("user_ID").value
+		    let password = document.getElementById("user_password").value
+			let Email = document.getElementById("mail").value
+			if(name == ''){
+				alert('이름을 입력해 주세요')}
+			else{
+				alert('이름을 다시 입력해주세요')}}
+
+		</script>
 	</body>
 </html>
