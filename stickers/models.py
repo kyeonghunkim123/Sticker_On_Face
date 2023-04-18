@@ -1,18 +1,18 @@
 import time
 from django.db import models
-from stickers.utils import rename_imagefile_to_uuid
+from stickers.utils import rename_imagefile_to_uuid, date_upload_to
+
 
 # Create your models here.
 
 
 
-# class FileUpload(models.Model):
-#     title = models.TextField(max_length=40, null=True)
-#     imgfile = models.ImageField(null=True, upload_to="", blank=True)
-#     content = models.TextField()
-#
-#     def __str__(self):
-#         return self.title
+class OneImageFile(models.Model):
+    name = models.CharField(max_length=10)
+    # photo = models.ImageField(upload_to="")
+    photo = models.ImageField(null=True, upload_to=date_upload_to, blank=True)
+
+
 
 
 class UploadService(models.Model):

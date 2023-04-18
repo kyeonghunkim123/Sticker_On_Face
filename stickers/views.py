@@ -1,7 +1,7 @@
 from Sticker_On_Face import settings
 from django.shortcuts import render
 
-from stickers.models import UploadService
+from stickers.models import UploadService, OneImageFile
 
 
 # from django.http import HttpResponse
@@ -38,26 +38,8 @@ def sticker_save_open(request):
 
 
 def home(request):
-    if request.method == 'POST' and request.FILES:
-        myfile = request.FILES['myfile']
-    save_dir = settings.MEDIA_ROOT + '/upload/'
-    if myfile.name == '':
-        return render(request, 'errorView.html')
-    upload_service = UploadService()
-    file_name = upload_service.save_file(save_dir, myfile)
-    context = {'file_name': file_name}
-
-    print("saveDir : " + save_dir)
-    print("original_Filename : " + myfile.name)
-    print("new_Filename : " + file_name)
-
-    return render(request, 'imageView.html', context)
-    return render(request, 'home.html')
-
-
-def upload(request):
     print("------------1------------")
-    if request.method == 'POST' and request.FILES: # POST방식이고 file이 있을때.
+    if request.method == 'POST' and request.FILES:  # POST방식이고 file이 있을때.
         print("------------2------------")
         img = request.FILES['myfile']
         print()
@@ -79,9 +61,31 @@ def upload(request):
         print("original_Filename : " + img.name)
         print("new_Filename : ", 'not yet')
         print("------------5------------")
-    else : return render(request, 'stickers/subpage/errorView.html')
+    else:
+        return render(request, 'stickers/subpage/errorView.html')
     print("------------6------------")
 
+    return render(request, 'stickers/subpage/imageView.html', context)
+
+
+
+def upload(request):
+    if request.method == 'POST' and request.FILES: # POST방식이고 file이 있을때.
+        photo = request.FILES['myfile']
+        if photo.name == '':
+            return render(request, 'stickers/subpage/errorView.html')
+
+        oneImageFile = OneImageFile(name=photo.name, photo=photo)
+        print(" the name of saved image : ", oneImageFile.photo)
+        print(" ### print(oneImageFile.photo) : ", print(oneImageFile.photo))
+        print("type(img) : ", type(photo))
+        oneImageFile.save()
+        context = {
+            'fileName' : oneImageFile.name,
+            'oneImageFile': oneImageFile}
+
+        print("original_Filename : " + photo.name)
+    else : return render(request, 'stickers/subpage/errorView.html')
     return render(request, 'stickers/subpage/imageView.html', context)
 
 
