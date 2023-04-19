@@ -17,7 +17,6 @@ def signup(request):
 def find_id(request):
     return render(request, "users/find_id.html")
 
-# 수정 def find_pw(
 
-def find_pw():
-    return 0
+def find_pw(request):
+    return render(request, "users/find_pw.html")
