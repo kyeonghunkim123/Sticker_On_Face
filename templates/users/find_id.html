@@ -29,10 +29,10 @@
 								</ul>
 							</li>
 							<li>
-								<a href="/users/login">LOGIN</a>
+								<a href="{% url 'login' %}">LOGIN</a>
 								<ul>
-									<li><a href="/users/signup">회원가입</a></li>
-									<li><a href="/users/find_id">계정찾기</a></li>
+									<li><a href="{% url 'signup' %}">회원가입</a></li>
+									<li><a href="{% url 'find_id' %}">계정찾기</a></li>
 								</ul>
               				</li>
 							<li>
@@ -60,9 +60,9 @@
 				<div class="inner">
 					<div class="main_menu">
 						<ul>
-							<li><a href="/users/signup"><h3>회원가입</h3></a></li>
-							<li><a href="/users/find_id"><h3>아이디 찾기</h3></a></li>
-							<li><a href="#"><h3>비밀번호 찾기</h3></a></li>
+							<li><a href="{% url 'signup' %}"><h3>회원가입</h3></a></li>
+							<li><a href="{% url 'find_id' %}"><h3>아이디 찾기</h3></a></li>
+							<li><a href="{% url 'find_pw' %}"><h3>비밀번호 찾기</h3></a></li>
 						</ul>
 					</div>
 					<div class="sign_card">
@@ -80,7 +80,7 @@
 							</div>
 						</form>
 						<ul>
-							<li><a href="#">비밀번호 찾기</a></li>
+							<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
 						</ul>
 					</div>
 				</div>
@@ -145,6 +145,6 @@
 			<script src="/static/js/common/browser.min.js"></script>
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
-			<script src="/static/js/mainpage.js"></script>
+			<script src="/static/js/common/common.js"></script>
 	</body>
 </html>

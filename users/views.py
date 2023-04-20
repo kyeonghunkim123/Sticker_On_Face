@@ -16,3 +16,7 @@ def signup(request):
 
 def find_id(request):
     return render(request, "users/find_id.html")
+
+
+def find_pw(request):
+    return render(request, "users/find_pw.html")
