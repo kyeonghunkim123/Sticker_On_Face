@@ -6,10 +6,10 @@ header {
     z-index:9;
 }
 #search {
-    height: 60px;
     position: fixed;
+    height: 60px;
     width: 100%;
-    background-color: #dcdcdc;
+    background-color: #f3f3f3;
     z-index:2;
 }
 #search .content {
@@ -38,20 +38,29 @@ ul {
 }
 
 .main_menu {
+    position: relative;
+    border-top: 4px solid #df7467;
     left: 0;
     width: 200px;
     margin-top: 150px;
 }
-.main_menu > h3 {
-    font-weight: bold;
+.main_menu > h2 {
+    margin: 20px auto;
+    position: relative;
+    padding-left: 10px;
+    font-weight: 500;
 }
 .main_menu > ul {
+    position: relative;
+    padding-left: 20px;
     list-style: none;
+    text-style: none;
 }
 .main_menu > ul > li {
+    position: relative;
     width: 100%;
 }
-.main_menu > ul > li > a {
+.main_menu > ul > li > h3 {
     display: block;
     width: 100%;
 }
