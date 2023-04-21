@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .active {
+        border: 3px solid red;
+      }
+      .background {
+        width: 400px;
+        height: 450px;
+        background-repeat: no-repeat left top;
+        background-size: 50% 50%;
+        position:fixed; left:1040px;  top:10px;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class ="grid">
+      <img id="image1" src="/static/images/bat.jpg" onclick="changeBg('image1')" />
+      <img id="image2" src="/static/images/bear.png" onclick="changeBg('image2')" />
+      <img id="image3" src="/static/images/bear_nose2.png" onclick="changeBg('image3')" />
+      <img id="image4" src="/static/images/cat.png" onclick="changeBg('image4')" />
+      <img id="image5" src="/static/images/blank.png" onclick="changeBg('image5')" />
+      <img id="image6" src="/static/images/blank.png" onclick="changeBg('image6')" />
+    </div>
+    <script>
+      let previousImage = null;
+      function changeBg(id) {
+        const image = document.getElementById(id);
+        const background = document.querySelector(".background");
+        if (image.classList.contains("active")) {
+          image.classList.remove("active");
+          background.style.background = "";
+          previousImage = null;
+        } else {
+          image.classList.add("active");
+          if (previousImage !== null) {
+            previousImage.classList.remove("active");
+          }
+          if (id === "image1") {
+            background.style.background = "url('/static/images/jisoo_bat.jpg')";
+          }
+          if (id === "image2") {
+            background.style.background = "url('/static/images/jisoo_bear.jpg')";
+          }
+          if (id === "image3") {
+            background.style.background = "url('/static/images/jisoo_bear_nose.jpg')";
+          }
+          if (id === "image4") {
+            background.style.background = "url('/static/images/jisoo_cat.png')";
+          }
+          if (id === "image5") {
+            background.style.background = "url('/static/images/blank.png')";
+          }
+          
+          else if (id === "image6") {
+            background.style.background = "url('/static/images/blank.png')";
+          }
+          previousImage = image;
+        }
+      }
+    </script>
+    <div class="background"></div>
+  </body>
+</html>
+
+

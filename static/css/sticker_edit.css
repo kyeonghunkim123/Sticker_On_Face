@@ -10,7 +10,7 @@
 ul {margin-left:15px;
 list-style-type:none;}
 ul li {margin:10px 15px;}
-/* 이미지업로드 */
+/* 이미지업로드버튼 */
 button{
     border:1px solid #CACACA;
     border-radius:5px;
@@ -24,7 +24,7 @@ button{
     
     }
         
-/* 완료 */
+/* 완료버튼 */
 button1{
     border:1px;
     border-radius:5px;
@@ -37,6 +37,7 @@ button1{
     text-align: center;  
     
     }
+/* 링크연결된 완료버튼 */
     a{
         border:1px;
         border-radius:5px;
@@ -56,7 +57,7 @@ li {
     height:250px;
     border:5px solid gray;
     padding:100px;
-     margin:20px;
+    margin:20px;
     /* background:url("img/jisoo_cat.png") no-repeat left top ;
     text-align: center; */
     position:fixed; left:200px; top:30px;
@@ -65,9 +66,9 @@ li {
 #fixed1{background-size: contain ;}
 
 .face{
-    width: 400px; height: 450px; 
+    width: 400px; height: 451px; 
     margin:right;
-    position:fixed; left:400px; top:45px;
+    position:fixed; left:400px; top:44px;
     background:url("/static/images/jisoo_cat.png") no-repeat left top;
     /* background:url("/static/images/jisoo_bat.jpg") no-repeat left top; */
     /* background:url("/static/images/jisoo_bear.jpg") no-repeat left top;  */
@@ -76,143 +77,129 @@ li {
 
     }
 #face{background-size: contain ;}
+
 /* 불러온 사진 목록 */
 .image00{
     width: 220px; height: 120px; 
     border:5px solid gray;
     background-color: white;
-    position:fixed; left:1040px; top:30px;
+    position:fixed; left:1040px;   
+}
+/* 사진 목록 위치  */
+.image1{position:fixed; top:40px;}   
+.image2{position:fixed; top:180px;}
+.image3{position:fixed; top:320px;}
+.image4{position:fixed; top:460px;}
+
+
+
+/* 스티커 */
+/* 스티커 크기 조절 */
+.sticker{
+    width: 90px; height: 102px;
+}
+/* border 선  */
+.sticker {margin:5px;border:#FFF 2px solid;}
+.sticker:hover {border:#F00 2px solid;}
+
+#sticker{
+    width: 90px; height: 102px;
 }
 
-.image1{
-    width: 220px; height: 120px; 
-    border:5px solid gray;
-    background-color: white;
-    position:fixed; left:1040px; top:40px;
-            
-
-    }
-.image2{
-    width: 220px; height: 120px; 
-    border:5px solid gray;
-    background-color: white;
-    position:fixed; left:1040px; top:180px;
-            
-    }
-.image3{
-    /* width: 220px; height: 120px; 
-    border:5px solid gray;
-    background-color: white; */
-    position:fixed; left:1040px; top:320px;
-            
-    }
-.image4{
-    /* width: 220px; height: 120px;
-    border:5px solid gray;
-    margin:right;
-    background-color: white; */
-    position:fixed; left:1040px; top:460px;
-            
-    }
-
+/* bat */
 .sticker1{
-    width: 90px; height: 102px;           
-    margin:right;
     position:fixed; left:305px; top:550px;
     background:url("/static/images/bat.jpg") no-repeat left top;
 
     }
 #bat{background-size: 100% 110% ;}
+
 /* cat */
 .sticker2{
-    width: 90px; height: 102px; 
-    margin:right;
-    position:fixed; left:399px; top:549px;
+    position:fixed; left:399px; top:550px;
     background:url("/static/images/cat.png") no-repeat left top;
 
     }
 #cat{background-size: contain ;}
+
 /* bear */
 .sticker3{
-    width: 90px; height: 102px; 
-    margin:right;
-    position:fixed; left:492px; top:549px;
+    position:fixed; left:492px; top:550px;
     background:url("/static/images/bear.png") no-repeat left top;
 
     }
 #bear{background-size: cover ;}
+
 /* bear_nose2 */
 .sticker4{
-    width: 90px; height: 102px; 
-    margin:right;
-    position:fixed; left:585px; top:549px;
+    position:fixed; left:585px; top:550px;
     background:url("/static/images/bear_nose2.png") no-repeat left top;
 
     }
 #bear_nose{background-size: cover ;}
+
 /*  */
-.sticker5{
-    width: 90px; height: 102px; 
-    border:3px solid rgb(180, 180, 180);
-    background:white;
-    margin:right;
-    position:fixed; left:677px; top:549px;
-    background:url("/static/images/blank.png") no-repeat left top;
+.sticker5{ 
+    position:fixed; left:677px; top:550px;
+    background-color: rgb(194, 194, 194)
 
     }
 #blank1{background-size: cover;}
+
 /*  */
 .sticker6{
-    width: 90px; height: 102px; 
-    border:3px solid rgb(180, 180, 180);
-    background:white;
-    margin:right;
-    position:fixed; left:770px; top:549px;
-    
-
+    position:fixed; left:770px; top:550px;
+    background-color: rgb(194, 194, 194)
     }
-    /* 스티커 이동창 */
-.left{
-    width: 30px; height: 60px; 
- /* < */
+
+
+/* 스티커 이동창 */
+/* <-> */
+.pass{
+    width: 30px; height: 60px;
     margin:right;
+
+}
+.left{
+ /* < */
     position:fixed; left:292px; top:575px;
     background:url("/static/images/pass_left.jpg") no-repeat left top;
 
     }
 /* > */
 .right{
-    width: 30px; height: 60px; 
-           
-    margin:right;
     position:fixed; left:868px; top:575px;
     background:url("/static/images/pass_right.jpg") no-repeat left top;
     }
-       
-#pass_1{background-size: contain ;}
-#pass_2{background-size: contain ;}
+.pass{
+    background-size: contain ;
+}      
 
-.sticker1 {margin:5px;border:#FFF 2px solid;}
-.sticker1:hover {border:#F00 2px solid;}
 
-.sticker2 {margin:5px;border:#FFF 2px solid;}
-.sticker2:hover {border:#F00 2px solid;}
 
-.sticker3 {margin:5px;border:#FFF 2px solid;}
-.sticker3:hover {border:#F00 2px solid;}
 
-.sticker4 {margin:5px;border:#FFF 2px solid;}
-.sticker4:hover {border:#F00 2px solid;}
 
-.sticker5 {margin:5px;border:#FFF 2px solid; background-color: rgb(194, 194, 194);}
-.sticker5:hover {border:#F00 2px solid;}
+a {
+    color: black;
+    text-decoration: none;
+    position:fixed; left:292px; top:575px;
+    width: 10px; height: 60px;
+    margin:right;
+    
+}
+ul{
+    list-style:none;
+    width:500px;
+    margin:10px;
+    padding:0;
+    position: fixed; right:10px; top:10px;
+}
 
-.sticker6 {margin:5px;border:#FFF 2px solid;background-color: rgb(194, 194, 194);}
-.sticker6:hover {border:#F00 2px solid;}
-
-.gird{
-    width: 220px; height: 120px; 
-    border:5px solid gray;
-    background-color: white;
-    position:fixed; left:1025px; top:30px;
+#a{
+    width: 500px;
+    height: 300px;
+    margin: 0 ;
+    border: 2px solid#ccc;
+    border-radius:15px;
+    position: fixed; right:10px; top:10px;
 }
