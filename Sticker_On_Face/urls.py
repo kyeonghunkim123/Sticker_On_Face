@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 import Sticker_On_Face.views as sv
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', sv.mainpage),
     path('users/', include('users.urls')),
     path('stickers/', include('stickers.urls')),
-
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

@@ -9,4 +9,15 @@
     <option name="format" value="PLAIN" />
     <option name="myDocStringFormat" value="Plain" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="TemplatesService">
+    <option name="TEMPLATE_CONFIGURATION" value="Jinja2" />
+    <option name="TEMPLATE_FOLDERS">
+      <list>
+        <option value="$MODULE_DIR$/templates" />
+      </list>
+    </option>
+  </component>
+>>>>>>> dev
 </module>

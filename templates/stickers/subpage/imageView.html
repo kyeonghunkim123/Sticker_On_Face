@@ -27,7 +27,8 @@
               <label id="maintitle" class="quicksand mb-4">Sticker_On_Mask</label>
 			  <label id="image-description" class="nskr">선택한 이미지가 맞다면 다음을 눌러주세요!</label>
 			  <label id="image-description" class="nskr">얼굴의 각도를 많이 틀었거나 얼굴의 일부가 나오지 않은 인원이 있는지 확인하세요!</label>
-              <img src="/media/kakao_kbs.png" class="mb-2 mt-2" width="400px" height="300px">
+<!--              <img src="media/kakao_kbs.png" class="mb-2 mt-2" width="400px" height="300px">-->
+              <img src="{{ oneImageFile.photo.url }}" class="mb-2 mt-2" width="400px" height="300px">
               <div id="buttons" class="d-flex justify-content-between">
                 <a class="btn btn-primary nskr mr-18" href="${pageContext.request.contextPath}/uploadView" onclick="appendLoading()">이전</a>
                 <form action="http://localhost:5000/aimask" method="post">
@@ -60,7 +61,7 @@
     {% else %}
 		<script>
 			alert("업로드에 실패했습니다. 다시 시도해주세요.");
-			window.location.replace("http://localhost:8181/demo/uploadView");
+			window.location.replace("http://localhost:8000/stickers/uploadView");
 		</script>
 	{% endif %}
 

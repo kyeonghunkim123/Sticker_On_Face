@@ -29,10 +29,10 @@
 								</ul>
 							</li>
 							<li>
-								<a href="/users/login">LOGIN</a>
+								<a href="{% url 'login' %}">LOGIN</a>
 								<ul>
-									<li><a href="/users/signup">회원가입</a></li>
-									<li><a href="/users/find_id">계정찾기</a></li>
+									<li><a href="{% url 'signup' %}">회원가입</a></li>
+									<li><a href="{% url 'find_id' %}">계정찾기</a></li>
 								</ul>
               				</li>
 							<li>
@@ -163,6 +163,7 @@
 			<script src="/static/js/common/browser.min.js"></script>
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
+<<<<<<< HEAD
 			<script src="/static/js/mainpage.js"></script>
 	        <script src="/static/js/users/join.js"></script>
 		<script src="https://code.jquery.com/jquery-3.6.4.min.js">
@@ -185,5 +186,8 @@
 
 
 		</script>
+=======
+			<script src="/static/js/common/common.js"></script>
+>>>>>>> dev
 	</body>
 </html>
