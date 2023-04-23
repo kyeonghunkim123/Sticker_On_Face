@@ -61,9 +61,10 @@
 					<div class="sign_card">
 						<h1>HYPER</h1>
 						<form action="" method="post">
+							{% csrf_token %}
 							<input id="id" type="text" name="id" placeholder="아이디" required/>
 							<input id="pwd" type="password" name="pwd" placeholder="비밀번호" required/>
-							<button>LOGIN</button>
+							<button id = 'check_login'>LOGIN</button>
 						</form>
 						<ul>
 							<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
@@ -134,5 +135,45 @@
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
 			<script src="/static/js/common/common.js"></script>
+			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+			<script>
+			$(function(){
+				$("#check_login").click(function(){
+					var userid = $('#id').val();
+					var userpw = $('#pwd').val();
+
+					if (userid === ''){
+						alert('아이디를 입력하세요');
+						return false;
+					}
+					if (userpw === ''){
+						alert('비밀번호를 입력하세요');
+						return false;
+					}
+					var csrf_token = "{{ csrf_token }}";
+					$.ajax({
+						url:'/check_login/',
+						type:'POST',
+						headers: {'X-CSRFToken': csrf_token},
+						data:{'userid':userid,
+							  'userpw':userpw,
+							  'csrfmiddlewaretoken': csrf_token
+						},
+						success:function(request){
+							if(request['exists']){
+								alert('아이디나 비밀번호가 올바르지 않습니다');
+
+							}
+							else{
+								alert('로그인에 성공했습니다');
+
+							}
+						}
+					});
+				});
+			});
+
+				</script>
+
 	</body>
 </html>

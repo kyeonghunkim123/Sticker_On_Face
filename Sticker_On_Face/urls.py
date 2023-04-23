@@ -19,7 +19,7 @@ from django.urls import path, include
 import Sticker_On_Face.views as sv
 from users.views import check_Id
 from users.views import check_join
-
+from users.views import check_login
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -29,7 +29,8 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('stickers/', include('stickers.urls')),
     path('check_Id/', check_Id, name='check_Id'),
-    path('check_join/', check_join, name='check_join')
+    path('check_join/', check_join, name='check_join'),
+    path('check_login/', check_login, name='check_login')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

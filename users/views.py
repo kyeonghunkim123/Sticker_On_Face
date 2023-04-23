@@ -61,6 +61,41 @@ def check_Id(request):
     print(exists)
     return JsonResponse({'exists': exists})
 
+def check_login(request):
+    if request.method != 'POST':
+        return JsonResponse({'error': 'POST 요청이 필요합니다.'}, status=400)
+    print(111111111)
+
+    userid = request.POST.get('userid')
+    userpw = request.POST.get('userpw')
+    print(211111111)
+
+    filename = "C:/tilburg_club/tilburg.txt"
+    with open(filename) as f:
+        root_ps = f.read().strip()
+    dev_ps = root_ps + 'dev'
+
+
+    conn = pymysql.connect(host='130.162.154.239', user='dev', password=dev_ps, db='Sticker_On_Face', charset='utf8')
+
+    cur = conn.cursor()
+
+    sql = 'select MEMBER_ID,MEMBER_PW from SOF_MEMBER where MEMBER_ID = (%s) and MEMBER_PW = (%s) '
+    val = (userid,userpw)
+
+    cur.execute(sql,val)
+
+    row = cur.fetchone()
+    print(row)
+    if row:
+        count = str(row[0])
+    else:
+        count = '0'
+
+    exists = count > '0'
+    print(exists)
+    return JsonResponse({'exists': exists})
+
 def check_join(request):
     print('input')
     if request.method == 'POST':
