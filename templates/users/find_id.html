@@ -49,6 +49,7 @@
 					<div class="content">
 						<p>HYPER PROJECT</p>
 						<form method="post" action="#">
+							{% csrf_token %}
 							<input type="search" name="query" id="query" value="" placeholder="Search our site" />
 						</form>
 					</div>
