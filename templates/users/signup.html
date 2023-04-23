@@ -75,6 +75,8 @@
 					<div class="sign_card">
 						<h1>회원가입</h1>
 						<form action="" method="post">
+							{% csrf_token %}
+
 							<div class="info">
 								<label for="name">NAME</label>
 								<input id="name" type="text" name="name" required/>
@@ -82,7 +84,7 @@
 							<div class="info">
 								<label for="user_ID">ID</label>
 								<input id="user_ID" type="text" name="user_ID" required/>
-								<button id="checkId">확인</button>
+								<button id="check_Id">확인</button>
 							</div>
 							<div class="info">
 								<label for="user_password">PASSWORD</label>
@@ -97,7 +99,7 @@
 								<input id="mail" type="email" name="mail" required/>
 							</div>
 							<div class="signup">
-								<button id="signup_button" onclick="return check_from()">SIGN UP</button>
+								<button id="signup_button" >SIGN UP</button>
 							</div>
 						</form>
 					</div>
@@ -163,31 +165,106 @@
 			<script src="/static/js/common/browser.min.js"></script>
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
-<<<<<<< HEAD
 			<script src="/static/js/mainpage.js"></script>
 	        <script src="/static/js/users/join.js"></script>
-		<script src="https://code.jquery.com/jquery-3.6.4.min.js">
-		$(function(){
-			$("#checkId").on("click",function(){
-				$.ajax({
-				url:aaaa,
-				data:{user_ID:'aaa'},
-				method:"post",
-				dataType:"json,
-				success:function(response){
-					alert('사용가능한 아이디입니다');
-				},
-				error:function(jqXHR, textStatus, errorThrown){
-					alert('중복되는 아이디가 존재합니다');
-					}
-				});
-			}
-		}
-
-
-		</script>
-=======
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 			<script src="/static/js/common/common.js"></script>
->>>>>>> dev
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script>
+	$(function(){
+		$("#signup_button").prop("disabled", true);
+
+		$("#check_Id").click(function(){
+			var userid = $('#user_ID').val();
+			if (userid === ''){
+				alert('아이디를 입력하세요');
+				return false;
+			}
+			var csrf_token = "{{ csrf_token }}";
+			$.ajax({
+				url:'/check_Id/',
+				type:'POST',
+				headers: {'X-CSRFToken': csrf_token},
+				data:{'userid':userid,
+					  'csrfmiddlewaretoken': csrf_token
+				},
+				success:function(request){
+					if(request['exists']){
+						alert('중복되는 아이디가 있습니다');
+						$('#user_ID').focus()
+					}
+					else{
+						alert('사용가능한 아이디입니다');
+						$("#signup_button").prop("disabled", false);
+					}
+				}
+			});
+		});
+	});
+
+        </script>
+
+	<script>
+$(function(){
+    $("#signup_button").click(function(){
+
+
+        var username = $('#name').val();
+        var userid = $('#user_ID').val();
+        var userpw = $('#user_password').val();
+        var userphone = $('#phone').val();
+        var usermail = $('#mail').val();
+
+        if (username === ''){
+            alert('이름를 입력하세요');
+            return false;
+        }
+        if (userpw === ''){
+            alert('비밀번호를 입력하세요');
+            return false;
+        }
+        if (!/^[\d-]+$/.test(userphone)) {
+    		alert('휴대폰번호는 숫자만 입력 가능합니다.');
+    		return false;
+        }
+        if (usermail === ''){
+            alert('이메일를 입력하세요');
+            return false;
+        }
+        if (!usermail.includes("@")) {
+            alert('올바른 이메일 주소를 입력하세요');
+            return false;
+        }
+		var csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+        $.ajax({
+            url:'/check_join/',
+            type:'POST',
+            headers: {'X-CSRF-Token': csrf_token},
+            data:{
+                'username':username,
+                'userid':userid,
+                'userpw':userpw,
+                'userphone':userphone,
+                'usermail':usermail,
+                'csrfmiddlewaretoken': csrf_token
+            },
+            success:function(response){
+                if(response.success){
+                    alert('회원가입에 성공을 했습니다.');
+
+                }
+                else{
+                    alert('회원가입을 다시해주세요');
+                }
+            },
+            error:function(error){
+            	console.log(error);
+                alert('회원가입에 실패하였습니다. 에러: ' + error.responseText);
+                window.location.href = '';
+            }
+        });
+    });
+});
+</script>
 	</body>
 </html>
