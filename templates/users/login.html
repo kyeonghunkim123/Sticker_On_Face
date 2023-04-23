@@ -29,10 +29,10 @@
 								</ul>
 							</li>
 							<li>
-								<a href="/users/login">LOGIN</a>
+								<a href="{% url 'login' %}">LOGIN</a>
 								<ul>
-									<li><a href="/users/signup">회원가입</a></li>
-									<li><a href="/users/find_id">계정찾기</a></li>
+									<li><a href="{% url 'signup' %}">회원가입</a></li>
+									<li><a href="{% url 'find_id' %}">계정찾기</a></li>
 								</ul>
               				</li>
 							<li>
@@ -66,9 +66,9 @@
 							<button>LOGIN</button>
 						</form>
 						<ul>
-							<li><a href="#">비밀번호 찾기</a></li>
-							<li><a href="/users/find_id">아이디 찾기</a></li>
-							<li><a href="/users/signup">회원가입</a></li>
+							<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
+							<li><a href="{% url 'find_id' %}">아이디 찾기</a></li>
+							<li><a href="{% url 'signup' %}">회원가입</a></li>
 						</ul>
 					</div>
 				</div>
@@ -133,6 +133,6 @@
 			<script src="/static/js/common/browser.min.js"></script>
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
-			<script src="/static/js/mainpage.js"></script>
+			<script src="/static/js/common/common.js"></script>
 	</body>
 </html>

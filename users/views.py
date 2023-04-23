@@ -19,6 +19,7 @@ def signup(request):
 def find_id(request):
     return render(request, "users/find_id.html")
 
+<<<<<<< HEAD
 def find_myid(request):
     str_name = request.POST.get("MEMBER_NAME")
     str_tel = request.POST.get("MEMBER_TEL")
@@ -57,3 +58,8 @@ def find_myid(request):
 
 
 
+=======
+
+def find_pw(request):
+    return render(request, "users/find_pw.html")
+>>>>>>> dev
