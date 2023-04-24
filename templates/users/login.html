@@ -134,6 +134,9 @@
 			<script src="/static/js/common/browser.min.js"></script>
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
+			<script src="/static/js/mainpage.js"></script>
+	        <script src="/static/js/users/join.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 			<script src="/static/js/common/common.js"></script>
 			<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 			<script>
@@ -155,12 +158,13 @@
 						url:'/check_login/',
 						type:'POST',
 						headers: {'X-CSRFToken': csrf_token},
-						data:{'userid':userid,
+						data:{
+							  'userid':userid,
 							  'userpw':userpw,
 							  'csrfmiddlewaretoken': csrf_token
 						},
-						success:function(request){
-							if(request['exists']){
+						success:function(response){
+							if(response['success'] == 'True'){
 								alert('아이디나 비밀번호가 올바르지 않습니다');
 
 							}

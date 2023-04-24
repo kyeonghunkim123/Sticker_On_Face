@@ -176,6 +176,7 @@
 
 		$("#check_Id").click(function(){
 			var userid = $('#user_ID').val();
+			console.log("userId : " + userid);
 			if (userid === ''){
 				alert('아이디를 입력하세요');
 				return false;
@@ -189,7 +190,7 @@
 					  'csrfmiddlewaretoken': csrf_token
 				},
 				success:function(request){
-					if(request['exists']){
+					if(request['exists'] == 'True'){
 						alert('중복되는 아이디가 있습니다');
 						$('#user_ID').focus()
 					}
@@ -249,8 +250,9 @@ $(function(){
                 'csrfmiddlewaretoken': csrf_token
             },
             success:function(response){
-                if(response.success){
+                if(response['success'] == 'True'){
                     alert('회원가입에 성공을 했습니다.');
+                    location.href = 'http://127.0.0.1:8000/';
 
                 }
                 else{
