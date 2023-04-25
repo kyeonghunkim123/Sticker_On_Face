@@ -49,7 +49,6 @@
 					<div class="content">
 						<p>HYPER PROJECT</p>
 						<form method="post" action="#">
-							{% csrf_token %}
 							<input type="search" name="query" id="query" value="" placeholder="Search our site" />
 						</form>
 					</div>
@@ -69,9 +68,10 @@
 					<div class="sign_card">
 						<h1>비밀번호 찾기</h1>
 						<form action="" method="post">
+							{% csrf_token %}
 							<div class="info">
-								<label for="user_id">ID</label>
-								<input id="name" type="text" name="name" placeholder="아이디" required/>
+								<label for="user_name">ID</label>
+								<input id="id" type="text" name="id" placeholder="아이디" required/>
 							</div>
 							<div class="info">
 								<button class="next">NEXT</button>
@@ -144,5 +144,35 @@
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
 			<script src="/static/js/common/common.js"></script>
+			<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+			<script>
+				$(function(){
+					$(".next").click(function(){
+						var userid = $('#id').val();
+
+						if(userid === ''){
+							alert('아이디를 입력하세요');
+							return false;
+						}
+						var csrf_token = "{{csrf_token}}";
+						$.ajax({
+							url:'/find_mypw/',
+							type:'POST',
+							headers: {'X-X-CSRFToken': csrf_token},
+							data:{'userid':userid,
+								  'csrfmiddlewaretoken': csrf_token
+							},
+							success:function(request){
+								if(request['match']){
+									alert('아이디가 올바릅니다.')
+								}else{
+									alert('xxxxxx');
+								}
+							}
+						})
+					})
+				})
+			</script>
+
 	</body>
 </html>
