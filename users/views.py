@@ -71,9 +71,9 @@ def check_login(request):
         result =cur.execute(sql, val)
         print(result)
 
-        exists = "False" if (result == None) else "True"
+        exists = "True" if (result == 0) else "False"
         print("##  print(exists) : ", exists)
-        return JsonResponse({'success': "exists"})
+        return JsonResponse({'success': f"{exists}"})
 
 
 
