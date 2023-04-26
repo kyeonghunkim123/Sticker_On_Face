@@ -32,8 +32,7 @@ urlpatterns = [
     path('check_Id/', check_Id, name='check_Id'),
     path('check_join/', check_join, name='check_join'),
     path('check_login/', check_login, name='check_login'),
-    path('', include('users.urls'))
-
+    path('', include('users.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
