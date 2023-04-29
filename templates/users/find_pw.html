@@ -79,10 +79,12 @@
 						</form>
 						<ul>
 							<li><a href=" {% url 'find_id' %} ">ID 찾기</a></li>
+							<h3 id="result"></h3> ###
 						</ul>
 					</div>
 				</div>
 			</div>
+		<div id="password"></div>
 
 	<!-- Footer -->
 			<footer id="footer">
@@ -159,16 +161,17 @@
 						$.ajax({
 							url:'/find_mypw/',
 							type:'POST',
-							headers: {'X-X-CSRFToken': csrf_token},
+							headers: {'X-CSRFToken': csrf_token},
 							data:{'userid':userid,
 								  'csrfmiddlewaretoken': csrf_token
 							},
-							success:function(request){
-								if(request['success'] == 'True'){
-									alert('성공')
-									location.href = 'http://127.0.0.1:8000/'
+							success:function(response){
+								if(response.success === 'True'){
+									alert('성공');
+									var userpassword = response.userpassword;
+									$('#result').text('비밀번호는 ' + userpassword + ' 입니다.');
 								}else{
-									alert('아이디가 X');
+									alert('아이디가 일치하지 않습니다.');
 									location.href = 'http://127.0.0.1:8000/users/find_pw'
 								}
 							}

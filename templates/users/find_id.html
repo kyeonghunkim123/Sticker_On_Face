@@ -79,6 +79,8 @@
 							<div class="info">
 								<button class="next" id='next' type="button">NEXT</button>
 							</div>
+							<!--아이디 띄우기 위한 태그-->
+							<h3 id="result"></h3>
 						</form>
 						<ul>
 							<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
@@ -176,11 +178,10 @@
                 success: function(response) {
                     if (response.success === 'True') {
                         alert('성공.');
-                        location.href = 'http://127.0.0.1:8000/'
-
-
+						var userid = response.userid;
+						$('#result').text('아이디는 ' + userid + ' 입니다.');
                     } else {
-                        alert('이름이 일치x');
+                        alert('이름이 일치하지 않습니다.');
 						location.href = 'http://127.0.0.1:8000/users/find_id'
 
                     }

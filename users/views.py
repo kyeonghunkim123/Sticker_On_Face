@@ -22,7 +22,6 @@ def find_id(request):
 
 
 def find_myid(request):
-    print('##########################')
     if request.method == 'POST':
         username = request.POST.get('username')
         usertel = request.POST.get('usertel')
@@ -41,21 +40,17 @@ def find_myid(request):
         result =cur.execute(sql, val)
         print(result)
 
-        match = "False" if (result == 0) else "True"
-        print("##  print(match) : ", match)
-        return JsonResponse({'success': f"{match}"})
-
-        # match = "True" if (result == username, usertel) else "False"
-        # return JsonResponse({'success': f'{match}'})
-
+        userid = cur.fetchone()[0] if result == 1 else None
+        return JsonResponse({'success': 'True' if userid else 'False', 'userid': userid})
 
 def find_pw(request):
     return render(request, "users/find_pw.html")
 
-
 def find_mypw(request):
+    print('##########################')
     if request.method == 'POST':
         userid = request.POST.get('userid')
+
         print('#####', userid)
 
         filename = "C:/tilburg_club/tilburg.txt"
@@ -65,23 +60,21 @@ def find_mypw(request):
         conn = pymysql.connect(host='130.162.154.239', user='dev', password=dev_ps, db='Sticker_On_Face',
                                charset='utf8')
         cur = conn.cursor()
-
         sql = 'select MEMBER_PW from SOF_MEMBER where MEMBER_ID = (%s)'
         val = (userid)
         result =cur.execute(sql, val)
         print(result)
 
-        match = "False" if (result == 0) else "True"
-        print("##  print(match) : ", match)
-        return JsonResponse({'success': f"{match}"})
+    #     if result == 1:
+    #         userpassword = cur.fetchone()[0]
+    #         return JsonResponse({'success': 'True', 'userpassword': userpassword})
+    #     else:
+    #         return JsonResponse({'success': 'False'})
 
+    # return JsonResponse({'success': 'False'})
 
-
-    # content = f"<h1>{userpw} is your password</h1>"
-    # print('5')
-    # return HttpResponse(content)
-    # if (row == None):
-    #     return render(request, "users/find_pw.html")
+        userpassword = cur.fetchone()[0] if result == 1 else None
+        return JsonResponse({'success': 'True' if userpassword else 'False', 'userpassword': userpassword})
 
 
 def check_Id(request):
