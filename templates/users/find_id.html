@@ -68,16 +68,19 @@
 					<div class="sign_card">
 						<h1>ID 찾기</h1>
 						<form action="" method="post">
+							{% csrf_token %}
 							<div class="info">
 								<input id="name" type="text" name="name" placeholder="이름" required/>
 							</div>
 							<div class="info">
-								<input id="phone" type="tel" name="phone" placeholder="전화번호" required/>
+								<input id="tel" type="tel" name="phone" placeholder="전화번호" required/>
 								<button id="get_code">인증번호 받기</button>
 							</div>
 							<div class="info">
-								<button class="next">NEXT</button>
+								<button class="next" id='next' type="button">NEXT</button>
 							</div>
+							<!--아이디 띄우기 위한 태그-->
+							<h3 id="result"></h3>
 						</form>
 						<ul>
 							<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
@@ -146,5 +149,46 @@
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
 			<script src="/static/js/common/common.js"></script>
+			<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+			<script>
+    $(function() {
+        $("#next").click(function() {
+            var username = $('#name').val();
+            var usertel = $('#tel').val();
+
+            if (username === '') {
+                alert('아이디를 입력하세요');
+                return false;
+            }
+            if (usertel === '') {
+                alert('전화번호를 입력하세요');
+                return false;
+            }
+
+            var csrf_token = "{{ csrf_token }}";
+            $.ajax({
+                url: '/find_myid/',
+                type: 'POST',
+                headers: {'X-CSRFToken': csrf_token},
+                data: {
+                    'username': username,
+                    'usertel': usertel,
+                    'csrfmiddlewaretoken': csrf_token
+                },
+                success: function(response) {
+                    if (response.success === 'True') {
+                        alert('성공.');
+						var userid = response.userid;
+						$('#result').text('아이디는 ' + userid + ' 입니다.');
+                    } else {
+                        alert('이름이 일치하지 않습니다.');
+						location.href = 'http://127.0.0.1:8000/users/find_id'
+
+                    }
+                }
+            });
+        });
+    });
+    </script>
 	</body>
 </html>
