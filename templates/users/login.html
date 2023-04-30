@@ -5,6 +5,7 @@
 		<div class="sign_card">
 			<h1>HYPER</h1>
 			<form action="" method="post">
+				{% csrf_token %}
 				<input id="id" type="text" name="id" placeholder="아이디" required/>
 				<input id="pwd" type="password" name="pwd" placeholder="비밀번호" required/>
 				<button>LOGIN</button>

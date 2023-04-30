@@ -68,19 +68,23 @@
 					<div class="sign_card">
 						<h1>비밀번호 찾기</h1>
 						<form action="" method="post">
+							{% csrf_token %}
 							<div class="info">
-								<input id="name" type="text" name="name" placeholder="비밀번호" required/>
+								<label for="id">ID</label>
+								<input id="id" type="text" name="name" placeholder="아이디" required/>
 							</div>
 							<div class="info">
-								<button class="next">NEXT</button>
+								<button class="next" id='next'  type="button">NEXT</button>
 							</div>
 						</form>
 						<ul>
 							<li><a href=" {% url 'find_id' %} ">ID 찾기</a></li>
+							<h3 id="result"></h3> ###
 						</ul>
 					</div>
 				</div>
 			</div>
+		<div id="password"></div>
 
 	<!-- Footer -->
 			<footer id="footer">
@@ -142,5 +146,39 @@
 			<script src="/static/js/common/breakpoints.min.js"></script>
 			<script src="/static/js/common/util.js"></script>
 			<script src="/static/js/common/common.js"></script>
+
+			<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+			<script>
+				$(function(){
+					$("#next").click(function(){
+						var userid = $('#id').val();
+
+						if(userid === ''){
+							alert('아이디를 입력하세요');
+							return false;
+						}
+						var csrf_token = "{{csrf_token}}";
+						$.ajax({
+							url:'/find_mypw/',
+							type:'POST',
+							headers: {'X-CSRFToken': csrf_token},
+							data:{'userid':userid,
+								  'csrfmiddlewaretoken': csrf_token
+							},
+							success:function(response){
+								if(response.success === 'True'){
+									alert('성공');
+									var userpassword = response.userpassword;
+									$('#result').text('비밀번호는 ' + userpassword + ' 입니다.');
+								}else{
+									alert('아이디가 일치하지 않습니다.');
+									location.href = 'http://127.0.0.1:8000/users/find_pw'
+								}
+							}
+						});
+					});
+				});
+			</script>
+
 	</body>
 </html>

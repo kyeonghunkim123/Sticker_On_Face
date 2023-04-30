@@ -1,30 +1,33 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="inner">
-					<div class="main_menu">
-						<ul>
-							<li><a href="{% url 'signup' %}"><h3>회원가입</h3></a></li>
-							<li><a href="{% url 'find_id' %}"><h3>아이디 찾기</h3></a></li>
-							<li><a href="{% url 'find_pw' %}"><h3>비밀번호 찾기</h3></a></li>
-						</ul>
-					</div>
-					<div class="sign_card">
-						<h1>ID 찾기</h1>
-						<form action="" method="post">
-							<div class="info">
-								<input id="name" type="text" name="name" placeholder="이름" required/>
-							</div>
-							<div class="info">
-								<input id="phone" type="tel" name="phone" placeholder="전화번호" required/>
-								<button id="get_code">인증번호 받기</button>
-							</div>
-							<div class="info">
-								<button class="next">NEXT</button>
-							</div>
-						</form>
-						<ul>
-							<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
-						</ul>
-					</div>
-				</div>
+	<div class="main_menu">
+		<ul>
+			<li><a href="{% url 'signup' %}"><h3>회원가입</h3></a></li>
+			<li><a href="{% url 'find_id' %}"><h3>아이디 찾기</h3></a></li>
+			<li><a href="{% url 'find_pw' %}"><h3>비밀번호 찾기</h3></a></li>
+		</ul>
+	</div>
+	<div class="sign_card">
+		<h1>ID 찾기</h1>
+		<form action="" method="post">
+			{% csrf_token %}
+			<div class="info">
+				<input id="name" type="text" name="name" placeholder="이름" required/>
+			</div>
+			<div class="info">
+				<input id="tel" type="tel" name="phone" placeholder="전화번호" required/>
+				<button id="get_code">인증번호 받기</button>
+			</div>
+			<div class="info">
+				<button class="next" id='next' type="button">NEXT</button>
+			</div>
+			<!--아이디 띄우기 위한 태그-->
+			<h3 id="result"></h3>
+		</form>
+		<ul>
+			<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
+		</ul>
+	</div>
+</div>
 {% endblock %}
