@@ -1,0 +1,111 @@
+/* base */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.inner {
+    position: relative;
+    margin: 0 auto;
+    width: 60%;
+    height: 100vh;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+a::before {
+
+}
+#main {
+    display: relative;
+}
+
+/* mainpage */
+.project {
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 2rem;
+    background-color: grey;
+    background: linear-gradient(#464646, #aaaaaa);
+    width: 90%;
+}
+.project .project_name {
+    position: relative;
+    display: block;
+    padding: 0.5rem 2rem;
+    bottom: 0;
+    height: 5rem;
+    z-index: 2;
+    float: left;
+    background-color: #7C74F7;
+    text-align: center;
+    font-size: 2rem;
+}
+.project .project_img {
+    margin: 0 auto;
+    width: 30rem;
+    float;
+}
+
+
+/* login.html */
+.sign_card {
+    position: relative;
+    margin: 100px auto;
+    padding: 20px 40px;
+    width: 400px;
+    height: 500px;
+    text-align: center;
+    border: 2px solid #7C74F7;
+}
+
+.sign_card h1 {
+    padding: 40px auto;
+    fonts-weight: bold;
+    margin: 40px auto;
+}
+.sign_card ul {
+    padding: 0;
+    padding: 0;
+    display: relative;
+    justify-content: space-between;
+    flex-grow: 0;
+    flex-basis: 1;
+    text-align: center;
+}
+
+.sign_card ul > li {
+    display: relative;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 0;
+    width: 30%;
+}
+
+.sign_card li a {
+    color: black;
+    text-decoration-line: none;
+}
+
+.sign_card > form > input {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding: 2px 4px;
+    background-color: #f1f3f5;
+
+}
+
+.sign_card > form > button {
+    width: 80%;
+    margin-top: 20px;
+    padding: 0 32px;
+    border-radius: 10px;
+    box-sizing: content-box;
+    background-color: #AAB9FF;
+}
