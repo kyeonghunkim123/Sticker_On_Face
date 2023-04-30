@@ -87,6 +87,36 @@ $(function() {
     });
 });
 
+/* Find Password */
+$(function(){
+    $("#next").click(function(){
+        var userid = $('#id').val();
+
+        if(userid === ''){
+            alert('아이디를 입력하세요');
+            return false;
+        }
+        var csrf_token = "{{csrf_token}}";
+        $.ajax({
+            url:'/find_mypw/',
+            type:'POST',
+            headers: {'X-CSRFToken': csrf_token},
+            data:{'userid':userid,
+                  'csrfmiddlewaretoken': csrf_token
+            },
+            success:function(response){
+                if(response.success === 'True'){
+                    alert('성공');
+                    var userpassword = response.userpassword;
+                    $('#result').text('비밀번호는 ' + userpassword + ' 입니다.');
+                }else{
+                    alert('아이디가 일치하지 않습니다.');
+                    location.href = 'http://127.0.0.1:8000/users/find_pw'
+                }
+            }
+        });
+    });
+});
 
 /* SignUp */
 
@@ -183,3 +213,4 @@ $(function(){
         });
     });
 });
+

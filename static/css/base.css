@@ -21,9 +21,12 @@ a::before {
 
 }
 #main {
-    display: relative;
+    position: relative;
 }
-
+.contents{
+    position: relative;
+    display: flex;
+}
 /* mainpage */
 .project {
     position: relative;
@@ -52,14 +55,16 @@ a::before {
     float;
 }
 
-
 /* login.html */
 .sign_card {
     position: relative;
-    margin: 100px auto;
-    padding: 20px 40px;
-    width: 400px;
-    height: 500px;
+    left: calc(50% - 150px);
+    transform: translateX(-50%);
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 80px 40px;
+    width: 600px;
+    height: 700px;
     text-align: center;
     border: 2px solid #7C74F7;
 }
@@ -67,7 +72,8 @@ a::before {
 .sign_card h1 {
     padding: 40px auto;
     fonts-weight: bold;
-    margin: 40px auto;
+    margin: 20px auto;
+    margin-bottom: 50px;
 }
 .sign_card ul {
     padding: 0;
@@ -92,20 +98,100 @@ a::before {
     text-decoration-line: none;
 }
 
-.sign_card > form > input {
-    width: 100%;
-    margin-top: 20px;
+.sign_card form input {
+    position: relative;
+    width: 300px;
+    height: 50px;
+    border: none;
+    border-bottom: 1px solid #aaaaaa;
     border-radius: 5px;
-    padding: 2px 4px;
-    background-color: #f1f3f5;
+    padding: 2px 16px;
+    background-color: rgba(246, 246, 246, 1);
 
 }
 
-.sign_card > form > button {
-    width: 80%;
+#signup_button, #login_button , #next {
+    width: 400px;
+    height: 40px;
     margin-top: 20px;
-    padding: 0 32px;
     border-radius: 10px;
-    box-sizing: content-box;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     background-color: #AAB9FF;
 }
+
+
+/* Sign Up */
+@media screen and (max-width: 1200px) {
+  .main_menu {
+    display: none;
+  }
+}
+.main_menu{
+    position: relative;
+    margin: 100px 0;
+    padding: 0 20px;
+    width: 300px;
+    height: 500px;
+}
+.main_menu h2 {
+    padding-top: 20px;
+    border-top: 10px solid #7C74F7;
+}
+.main_menu li {
+    margin-top: 10px;
+}
+table {
+    position: relative;
+    margin: 0 auto;
+}
+th {
+    text-align: left;
+    width: 120px;
+    height: 70px;
+    padding: 10px 10px;
+}
+td {
+    padding: 4px;
+    position: relative;
+    width: 200px;
+    height: 70px;
+    padding: 2px 4px;
+    align-items: center;
+    flex-direction: space-between;
+}
+#user_ID, #tel {
+    display: inline-block;
+    width: 214px;
+}
+#checkId {
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #AAB9FF;
+}
+.big_td {
+    height: 100px;
+}
+
+/* Find ID */
+#tel {
+    display: inline-block;
+    width: 190px;
+}
+#get_code {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border: none;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #AAB9FF;
+}
+

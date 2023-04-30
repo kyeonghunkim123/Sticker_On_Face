@@ -1,184 +1,46 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>HYPER</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="/static/css/common.css" />
-		<link rel="stylesheet" href="/static/css/find_id.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
-	</head>
-	<body class="is-preload">
-
-		<!-- Header -->
-			<header id="header">
-				<div class="inner">
-					<a class="logo" href="/"><strong>HYPER</strong></a>
-					<nav id="nav">
-						<ul>
-							<li>
-								<a href="#">MENU</a>
-								<ul>
-									<li><a href="#">프로젝트</a></li>
-									<li><a href="#">공지</a></li>
-									<li><a href="#">자주묻는질문</a></li>
-									<li><a href="#">고객센터</a></li>
-									<li><a href="#">게시판</a></li>
-								</ul>
-							</li>
-							<li>
-								<a href="/users/login">LOGIN</a>
-								<ul>
-									<li><a href="/users/signup">회원가입</a></li>
-									<li><a href="/users/find_id">계정찾기</a></li>
-								</ul>
-              				</li>
-							<li>
-								<a href="#" class="material-symbols-outlined">search</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			</header>
-
-		<!-- Search Bar -->
-			<div id="search">
-				<div class="inner">
-					<div class="content">
-						<p>HYPER PROJECT</p>
-						<form method="post" action="#">
-							<input type="search" name="query" id="query" value="" placeholder="Search our site" />
-						</form>
-					</div>
-				</div>
-			</div>
-
-		<!-- Main -->
-			<div id="main">
-				<div class="inner">
-					<div class="main_menu">
-						<ul>
-							<li><a href="/users/signup"><h3>회원가입</h3></a></li>
-							<li><a href="/users/find_id"><h3>아이디 찾기</h3></a></li>
-							<li><a href="/users/find_pw"><h3>비밀번호 찾기</h3></a></li>
-						</ul>
-					</div>
-					<div class="sign_card">
-						<h1>비밀번호 찾기</h1>
-						<form action="" method="post">
-							{% csrf_token %}
-							<div class="info">
-								<label for="id">ID</label>
-								<input id="id" type="text" name="name" placeholder="아이디" required/>
-							</div>
-							<div class="info">
-								<button class="next" id='next'  type="button">NEXT</button>
-							</div>
-						</form>
-						<ul>
-							<li><a href=" {% url 'find_id' %} ">ID 찾기</a></li>
-							<h3 id="result"></h3> ###
-						</ul>
-					</div>
-				</div>
-			</div>
-		<div id="password"></div>
-
-	<!-- Footer -->
-			<footer id="footer">
-				<div class="inner">
-					<div class="content">
-						<section>
-							<header>
-								<h2>목록 1</h2>
-							</header>
-							<ul class="alt">
-								<li><a href="#">목록내용 1</a></li>
-								<li><a href="#">목록내용 2</a></li>
-								<li><a href="#">목록내용 3</a></li>
-							</ul>
-						</section>
-						<section>
-							<header>
-								<h2>목록 2</h2>
-							</header>
-							<ul class="alt">
-								<li><a href="#">목록내용 1</a></li>
-								<li><a href="#">목록내용 2</a></li>
-								<li><a href="#">목록내용 3</a></li>
-							</ul>
-						</section>
-						<section>
-							<header>
-								<h2>Get in touch</h2>
-							</header>
-							<ul class="contact-icons">
-								<li class="icon solid fa-map-marker-alt">
-									<address>
-										Team Hyper<br />
-										서울 마포구 신촌로 94 그랜드플라자 7층<br />
-									</address>
-								</li>
-								<li class="icon solid fa-envelope">
-									<a href="#">information@untitled.tld</a>
-								</li>
-								<li class="icon brands fa-twitter">
-									<a href="#">@untitled</a>
-								</li>
-								<li class="icon solid fa-phone">
-									(000) 000-0000
-								</li>
-							</ul>
-						</section>
-					</div>
-					<div class="copyright">
-						&copy; Untitled Corporation. All rights reserved. Lorem ipsum dolor sit amet nullam.
-					</div>
-				</div>
-			</footer>
-
-		<!-- Scripts -->
-			<script src="/static/js/common/jquery.min.js"></script>
-			<script src="/static/js/common/jquery.dropotron.min.js"></script>
-			<script src="/static/js/common/browser.min.js"></script>
-			<script src="/static/js/common/breakpoints.min.js"></script>
-			<script src="/static/js/common/util.js"></script>
-			<script src="/static/js/common/common.js"></script>
-
-			<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-			<script>
-				$(function(){
-					$("#next").click(function(){
-						var userid = $('#id').val();
-
-						if(userid === ''){
-							alert('아이디를 입력하세요');
-							return false;
-						}
-						var csrf_token = "{{csrf_token}}";
-						$.ajax({
-							url:'/find_mypw/',
-							type:'POST',
-							headers: {'X-CSRFToken': csrf_token},
-							data:{'userid':userid,
-								  'csrfmiddlewaretoken': csrf_token
-							},
-							success:function(response){
-								if(response.success === 'True'){
-									alert('성공');
-									var userpassword = response.userpassword;
-									$('#result').text('비밀번호는 ' + userpassword + ' 입니다.');
-								}else{
-									alert('아이디가 일치하지 않습니다.');
-									location.href = 'http://127.0.0.1:8000/users/find_pw'
-								}
-							}
-						});
-					});
-				});
-			</script>
-
-	</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+{% include 'users/user_menu.html' %}
+<div class="inner">
+	<div class="sign_card">
+		<h1>비밀번호 찾기</h1>
+		<form action="" method="post">
+			{% csrf_token %}
+			<table class="info">
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<td>
+						<input id="id" type="text" name="name" placeholder="아이디" required/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="big_td">
+						<button class="next" id='next' type="button">NEXT</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" >
+						<a href=" {% url 'find_id' %}" class="text-dark">ID 찾기</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h3 id="result"></h3> ###
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div id="password"></div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+{% endblock %}
