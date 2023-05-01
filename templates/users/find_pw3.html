@@ -16,9 +16,15 @@
 				</tr>
 				<tr>
 					<td colspan="2" class="big_td">
-						<button class="next" id='next' onclick="location.href='{% url 'find_pw_failed' %}'" type="button">NEXT</button>
+						<button class="next" id='next' type="button">NEXT</button>
 					</td>
 				</tr>
+                <tr>
+                  <td>
+                    <p>번호가 존재하지 않습니다. 다시 입력해주세요.</p>
+                  </td>
+
+                </tr>
 				<tr>
 					<td colspan="2">
 						<h3 id="result"></h3>
@@ -34,4 +40,3 @@
 	</div>
 </div>
 {% endblock %}
-
