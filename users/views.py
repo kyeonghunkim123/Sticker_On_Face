@@ -121,38 +121,22 @@ def check_login(request):
 
         cur = conn.cursor()
 
-        sql = 'select MEMBER_ID from SOF_MEMBER where MEMBER_ID = (%s) and MEMBER_PW = (%s) '
+        sql = 'select MEMBER_NAME from SOF_MEMBER where MEMBER_ID = (%s) and MEMBER_PW = (%s) '
         val = (userid, userpw)
 
         result =cur.execute(sql, val)
         print(result)
 
         exists = "True" if (result == 0) else "False"
+        # row = cur.fetchone()
+        # response_date=request.session[row[0]]
         print("##  print(exists) : ", exists)
         return JsonResponse({'success': f"{exists}"})
 
 
 
 
-    conn = pymysql.connect(host='130.162.154.239', user='dev', password=dev_ps, db='Sticker_On_Face', charset='utf8')
 
-    cur = conn.cursor()
-
-    sql = 'select MEMBER_ID from SOF_MEMBER where MEMBER_ID = (%s) '
-    val = (userid)
-
-    cur.execute(sql,val)
-
-    row = cur.fetchone()
-    print(row)
-    if row:
-        count = str(row[0])
-    else:
-        count = '0'
-
-    exists = count > '0'
-    print(exists)
-    return JsonResponse({'exists': exists})
 
 def check_login(request):
     if request.method != 'POST':
@@ -173,21 +157,37 @@ def check_login(request):
 
     cur = conn.cursor()
 
-    sql = 'select MEMBER_ID,MEMBER_PW from SOF_MEMBER where MEMBER_ID = (%s) and MEMBER_PW = (%s) '
+    sql = 'select MEMBER_NAME from SOF_MEMBER where MEMBER_ID = (%s) and MEMBER_PW = (%s) '
     val = (userid,userpw)
 
-    cur.execute(sql,val)
-
+    result = cur.execute(sql,val)
     row = cur.fetchone()
-    print(row)
-    if row:
-        count = str(row[0])
+    if row is None:
+        response_data = {}
     else:
-        count = '0'
+        response_data = {'MEMBER_NAME': row[0]}
 
-    exists = count > '0'
-    print(exists)
-    return JsonResponse({'exists': exists})
+
+
+
+    exists = "True" if (result == 0) else "False"
+    if exists == True:
+        return JsonResponse({'success': f"{exists}"})
+    else:
+        return JsonResponse({'success': f"{exists}",**response_data})
+
+
+
+def logout(request):
+    auth_logout(request)
+    return redirect('/')
+
+
+
+
+
+
+
 
 
 def check_join(request):

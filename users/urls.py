@@ -4,6 +4,7 @@ from users.views import check_Id
 import users
 import users.views as uv
 
+
 urlpatterns = [
     path('login', uv.login, name='login'),
     path('signup', uv.signup, name='signup'),
@@ -13,7 +14,8 @@ urlpatterns = [
 
     path('check_Id/', check_Id, name='check_Id'),
     path('find_myid/', uv.find_myid, name='find_myid'),
-    path('find_mypw/', uv.find_mypw, name='find_mypw')
+    path('find_mypw/', uv.find_mypw, name='find_mypw'),
+    path('logout/',uv.logout,name='logout')
 
 ]
 

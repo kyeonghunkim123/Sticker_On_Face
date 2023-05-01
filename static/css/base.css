@@ -112,7 +112,7 @@ a::before {
 
 }
 
-#signup_button, #login_button , #next {
+#signup_button, #login_button , #next ,#check_login {
     width: 400px;
     height: 40px;
     margin-top: 20px;

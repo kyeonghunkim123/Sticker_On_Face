@@ -16,7 +16,7 @@
 						<td><input id="pwd" type="password" name="pwd" placeholder="비밀번호" required/></td>
 					</tr>
 					<tr>
-						<td><button id="login_button" style="width:300px;">LOGIN</button></td>
+						<td><button id="check_login" style="width:300px;" type="button">LOGIN</button></td>
 					</tr>
 				</table>
 			</form>
@@ -68,8 +68,8 @@ $(function(){
                 }
                 else{
                     console.log("--3--");
-                    alert('로그인에 성공했습니다');
-                    location.href = 'http://127.0.0.1:8000/';
+                    alert(`환영합니다! ${response['MEMBER_NAME']} 님`);
+                    location.href = `http://127.0.0.1:8000/?name=${response['MEMBER_NAME']}`;
 
                 }
             }

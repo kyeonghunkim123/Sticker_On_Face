@@ -25,15 +25,22 @@
 				  	<span class="navbar-toggler-icon"></span>
 					</button>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+					{% if request.session.MEMBER_NAME %}
 				  <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+
 					  <li class="nav-item dropdown">
 					  <a class="nav-link dropdown-toggle bold fw-bolder text-dark" href="#" id="navbarScrollingDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						MENU
 					  </a>
 					  <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
 						<li><a class="dropdown-item" href="{% url 'sticker_select' %}">프로젝트</a></li>
+						<li><a href="users/logout" style="color:black" class="dropdown-item" >로그아웃</a></li>
 					  </ul>
 					  </li>
+				  </ul>
+					{% else %}
+					  <ul>
+
 					  	<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle fw-bolder text-dark" href="#" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							LOGIN
@@ -44,7 +51,9 @@
 								<li><a class="dropdown-item" href="{% url 'find_id' %}">계정찾기</a></li>
 							</ul>
 						</li>
-				  </ul>
+                      </ul>
+
+					 {% endif %}
 				</div>
 			  </div>
 			</nav>
