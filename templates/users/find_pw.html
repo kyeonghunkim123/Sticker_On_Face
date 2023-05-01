@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'users/user_menu.html' %}
+<div class="inner">
+	<div class="sign_card">
+		<h1>비밀번호 찾기</h1>
+		<form action="" method="post">
+			{% csrf_token %}
+			<table class="info">
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<td>
+						<input id="id" type="text" name="name" placeholder="아이디" required/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="big_td">
+						<button class="next" id='next' type="button">NEXT</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" >
+						<a href=" {% url 'find_id' %}" class="text-dark">ID 찾기</a>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<h3 id="result"></h3> ###
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div id="password"></div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+{% endblock %}
