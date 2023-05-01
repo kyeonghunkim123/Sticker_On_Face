@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+
+{% block extrahead %}
+{{ block.super }}
+<style>
+#li1 {text-decoration: underline !important;}
+</style>
+{% endblock %}
+
 {% block content %}
 {% include 'users/user_menu.html' %}
 <div class="inner">

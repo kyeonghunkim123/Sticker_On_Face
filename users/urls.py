@@ -9,6 +9,7 @@ urlpatterns = [
     path('signup', uv.signup, name='signup'),
     path('find_id', uv.find_id, name='find_id'),
     path('find_pw', uv.find_pw, name='find_pw'),
+    path('find_id_result', uv.find_id_result, name='find_id_result'),
 
     path('check_Id/', check_Id, name='check_Id'),
     path('find_myid/', uv.find_myid, name='find_myid'),

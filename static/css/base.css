@@ -29,6 +29,13 @@ a::before {
     position: relative;
     display: flex;
 }
+.hidden {
+    display: none !important;
+}
+.welcome {
+    display: inline-block;
+    margin: auto 0;
+}
 /* mainpage */
 .project {
     position: relative;
@@ -156,6 +163,7 @@ th {
     font-size: 16px;
 }
 td {
+    position: relative;
     padding: 4px;
     position: relative;
     width: 200px;
@@ -195,6 +203,35 @@ td {
     box-sizing: border-box;
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #AAB9FF;
+}
+
+/* find ID result */
+.not_found_text {
+    display: block;
+    position: relative;
+    width: 400px;
+    height: 100px;
+    margin: 100px auto;
+}
+.button-group {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly !important;
+    margin: 0 auto;
+    width: 400px;
+    height: 42px;
+}
+.button-group button {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-group .login {
     background-color: #AAB9FF;
 }
 

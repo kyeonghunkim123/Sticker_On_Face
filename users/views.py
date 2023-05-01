@@ -20,6 +20,8 @@ def signup(request):
 def find_id(request):
     return render(request, "users/find_id.html")
 
+def find_id_result(request):
+    return render(request, "users/find_id_result.html")
 
 def find_myid(request):
     if request.method == 'POST':
