@@ -156,6 +156,7 @@ th {
     font-size: 16px;
 }
 td {
+    position:relative;
     padding: 4px;
     position: relative;
     width: 200px;
@@ -180,6 +181,11 @@ td {
 }
 .big_td {
     height: 100px;
+}
+p#result {
+position:relative;
+right:0;
+color:red !important;
 }
 
 /* Find ID */

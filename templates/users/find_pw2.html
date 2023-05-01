@@ -16,9 +16,14 @@
 				</tr>
 				<tr>
 					<td colspan="2" class="big_td">
-						<button class="next" id='next' onclick="location.href='{% url 'find_pw_failed' %}'" type="button">NEXT</button>
+						<button class="next" id='next' type="button">LOGIN</button>
 					</td>
 				</tr>
+                <tr>
+                    <td>
+                      <p>비밀번호는 abcde234^입니다.</p>
+                    </td>
+                </tr>
 				<tr>
 					<td colspan="2">
 						<h3 id="result"></h3>
@@ -34,4 +39,3 @@
 	</div>
 </div>
 {% endblock %}
-
