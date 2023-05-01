@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'users/user_menu.html' %}
+<div class="inner">
+	<div class="sign_card">
+		<h1>회원가입</h1>
+		<form action="" method="post">
+			{% csrf_token %}
+			<table class="info">
+				<tr>
+					<th>NAME</th>
+					<td ><input id="name" type="text" name="name" required/></td>
+				</tr>
+				<tr>
+					<th>ID</th>
+					<td >
+						<input id="user_ID" type="text" name="user_ID" required/>
+						<button id="checkId">확인</button>
+					</td>
+				</tr>
+				<tr>
+					<th>PASSWORD</th>
+					<td><input id="user_password" type="password" name="user_password" required/></td>
+				</tr>
+				<tr>
+					<th>PHONE</th>
+					<td ><input id="phone" type="tel" name="phone" placeholder="010-XXXX-XXXX 형태로 입력" required/></td>
+				</tr>
+				<tr>
+					<th>EMAIL</th>
+					<td><input id="mail" type="email" name="mail" required/></td>
+				</tr>
+				<tr>
+					<td colspan="3"><button id="signup_button">SIGN UP</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<!-- SignUp -->
+<script type="text/javascript">
+$(function(){
+	$("#signup_button").prop("disabled", true);
+
+	$("#check_Id").click(function(){
+		var userid = $('#user_ID').val();
+		console.log("userId : " + userid);
+		if (userid === ''){
+			alert('아이디를 입력하세요');
+			return false;
+		}
+		var csrf_token = "{{ csrf_token }}";
+		$.ajax({
+			url:'/check_Id/',
+			type:'POST',
+			headers: {'X-CSRFToken': csrf_token},
+			data:{'userid':userid,
+				  'csrfmiddlewaretoken': csrf_token
+			},
+			success:function(request){
+				if(request['exists'] == 'True'){
+
+					alert('중복되는 아이디가 있습니다');
+					$('#user_ID').focus()
+				}
+				else{
+					alert('사용가능한 아이디입니다');
+					$("#signup_button").prop("disabled", false);
+				}
+			}
+		});
+	});
+});
+
+$(function(){
+	$("#signup_button").click(function(){
+
+
+		var username = $('#name').val();
+		var userid = $('#user_ID').val();
+		var userpw = $('#user_password').val();
+		var userphone = $('#phone').val();
+		var usermail = $('#mail').val();
+
+		if (username === ''){
+			alert('이름를 입력하세요');
+			return false;
+		}
+		if (userpw === ''){
+			alert('비밀번호를 입력하세요');
+			return false;
+		}
+		if (!/^[\d-]+$/.test(userphone)) {
+			alert('휴대폰번호는 숫자만 입력 가능합니다.');
+			return false;
+		}
+		if (usermail === ''){
+			alert('이메일를 입력하세요');
+			return false;
+		}
+		if (!usermail.includes("@")) {
+			alert('올바른 이메일 주소를 입력하세요');
+			return false;
+		}
+		var csrf_token = $('input[name="csrfmiddlewaretoken"]').val();
+		$.ajax({
+			url:'/check_join/',
+			type:'POST',
+			headers: {'X-CSRF-Token': csrf_token},
+			data:{
+				'username':username,
+				'userid':userid,
+				'userpw':userpw,
+				'userphone':userphone,
+				'usermail':usermail,
+				'csrfmiddlewaretoken': csrf_token
+			},
+			success:function(response){
+				if(response['success'] == 'True'){
+					alert('회원가입에 성공을 했습니다.');
+					location.href = 'http://127.0.0.1:8000/';
+				}
+				else{
+					alert('회원가입을 다시해주세요');
+				}
+			},
+			error:function(error){
+				console.log(error);
+				alert('회원가입에 실패하였습니다. 에러: ' + error.responseText);
+				window.location.href = '';
+			}
+		});
+	});
+});
+</script>
+{% endblock%}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="main_menu">
+</div>
+<div class="inner">
+		<div class="sign_card">
+			<h1>HYPER</h1>
+			<form action="" method="post">
+				{% csrf_token %}
+				<table class="info">
+					<tr>
+						<td><input id="id" type="text" name="id" placeholder="아이디" required/></td>
+					</tr>
+					<tr>
+						<td><input id="pwd" type="password" name="pwd" placeholder="비밀번호" required/></td>
+					</tr>
+					<tr>
+						<td><button id="login_button" style="width:300px;">LOGIN</button></td>
+					</tr>
+				</table>
+			</form>
+				<ul>
+					<li><a href="{% url 'find_pw' %}">비밀번호 찾기</a></li>
+					<li><a href="{% url 'find_id' %}">아이디 찾기</a></li>
+					<li><a href="{% url 'signup' %}">회원가입</a></li>
+				</ul>
+		</div>
+	</div>
+{% endblock %}
+
+{% block script %}
+<!-- Log In -->
+<script type='text/javascript'>
+$(function(){
+    $("#check_login").click(function(){
+        console.log("--0--");
+        var userid = $('#id').val();
+        var userpw = $('#pwd').val();
+        console.log(userid);
+
+
+        if (userid === ''){
+            alert('아이디를 입력하세요');
+            return false;
+        }
+        if (userpw === ''){
+            alert('비밀번호를 입력하세요');
+            return false;
+        }
+        var csrf_token = "{{ csrf_token }}";
+        console.log("--1--");
+        $.ajax({
+            url:'/check_login/',
+            type:'POST',
+            headers: {'X-CSRFToken': csrf_token},
+            data:{
+                  'userid':userid,
+                  'userpw':userpw,
+                  'csrfmiddlewaretoken': csrf_token
+            },
+            success:function(response){
+                console.log("--2--");
+                if(response['success'] == 'True'){
+
+                    alert('아이디나 비밀번호가 올바르지 않습니다');
+
+                }
+                else{
+                    console.log("--3--");
+                    alert('로그인에 성공했습니다');
+                    location.href = 'http://127.0.0.1:8000/';
+
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock%}
