@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+{% include 'users/user_menu.html' %}
+<div class="inner">
+	<div class="sign_card">
+		<h1>비밀번호 찾기</h1>
+		<p>회원정보에 등록된 휴대폰 번호로 찾기</p>
+		<form action="" method="post">
+			{% csrf_token %}
+			<table class="info">
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input id="phone" type="tel" name="phone" placeholder="010-XXXX-XXXX 형태로 입력" required/>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="big_td">
+						<button class="next" id='next' style="width:300px;" onclick="#" type="button">NEXT</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<!-- ID 찾기 후 결과가 출력되는 곳 -->
+						<h3 class="hidden" id="result">아이디 찾기 결과 출력</h3>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div id="password"></div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+{% endblock %}
+

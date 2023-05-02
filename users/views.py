@@ -48,6 +48,12 @@ def find_myid(request):
 def find_pw(request):
     return render(request, "users/find_pw.html")
 
+def find_pw_doubleCheck(request):
+    return render(request, "users/find_pw_doubleCheck.html")
+
+def find_pw_result(request):
+    return render(request, "users/find_pw_result.html")
+
 def find_mypw(request):
     print('##########################')
     if request.method == 'POST':

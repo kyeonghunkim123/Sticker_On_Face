@@ -21,9 +21,16 @@
 				</tr>
 				<tr>
 					<th>ID</th>
-					<td >
+					<td>
 						<input id="user_ID" type="text" name="user_ID" required/>
 						<button id="checkId">확인</button>
+					</td>
+				</tr>
+				<tr class="">
+					<th style="height:30px"></th>
+					<td class="d-flex justify-content-end" style="height:30px">
+						<!-- ID 중복확인 결과가 출력되는 p태그(default: '중복된 아이디입니다.'): 확인 이전에는 hidden 클래스를 가짐 -->
+						<p class="hidden p_result text-dange text-right" style="font-size:12px;" id="result">중복된 아이디입니다.</p>
 					</td>
 				</tr>
 				<tr>
