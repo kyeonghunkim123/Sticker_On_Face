@@ -28,3 +28,53 @@
 		</div>
 	</div>
 {% endblock %}
+
+{% block script %}
+<!-- Log In -->
+<script type='text/javascript'>
+$(function(){
+    $("#check_login").click(function(){
+        console.log("--0--");
+        var userid = $('#id').val();
+        var userpw = $('#pwd').val();
+        console.log(userid);
+
+
+        if (userid === ''){
+            alert('아이디를 입력하세요');
+            return false;
+        }
+        if (userpw === ''){
+            alert('비밀번호를 입력하세요');
+            return false;
+        }
+        var csrf_token = "{{ csrf_token }}";
+        console.log("--1--");
+        $.ajax({
+            url:'/check_login/',
+            type:'POST',
+            headers: {'X-CSRFToken': csrf_token},
+            data:{
+                  'userid':userid,
+                  'userpw':userpw,
+                  'csrfmiddlewaretoken': csrf_token
+            },
+            success:function(response){
+                console.log("--2--");
+                if(response['success'] == 'True'){
+
+                    alert('아이디나 비밀번호가 올바르지 않습니다');
+
+                }
+                else{
+                    console.log("--3--");
+                    alert('로그인에 성공했습니다');
+                    location.href = 'http://127.0.0.1:8000/';
+
+                }
+            }
+        });
+    });
+});
+</script>
+{% endblock%}

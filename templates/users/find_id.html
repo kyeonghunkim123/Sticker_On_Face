@@ -15,8 +15,11 @@
 				<tr>
 					<td>
 						<input id="tel" type="tel" name="phone" placeholder="전화번호" required/>
-						<button id="get_code">인증번호 받기</button>
+						<button id="get_code" class="btn-sm">인증번호 받기</button>
 					</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="code" id="code" placeholder="인증번호"></td>
 				</tr>
 				<tr>
 					<td>
@@ -26,7 +29,7 @@
 				</tr>
 				<tr>
 					<td class="big_td">
-						<button class="next" id='next' type="button">NEXT</button>
+						<button class="next" id='next' type="button" onclick="location.href='{% url 'find_id_result' %}'">NEXT</button>
 					</td>
 				</tr>
 			</table>
@@ -37,4 +40,48 @@
 		</ul>
 	</div>
 </div>
+{% endblock %}
+
+{% block script %}
+<!-- Find ID -->
+<script type="text/javascript">
+$(function() {
+	$("#next").click(function() {
+		var username = $('#name').val();
+		var usertel = $('#tel').val();
+
+		if (username === '') {
+			alert('아이디를 입력하세요');
+			return false;
+		}
+		if (usertel === '') {
+			alert('전화번호를 입력하세요');
+			return false;
+		}
+
+		var csrf_token = "{{ csrf_token }}";
+		$.ajax({
+			url: '/find_myid/',
+			type: 'POST',
+			headers: {'X-CSRFToken': csrf_token},
+			data: {
+				'username': username,
+				'usertel': usertel,
+				'csrfmiddlewaretoken': csrf_token
+			},
+			success: function(response) {
+				if (response.success === 'True') {
+					alert('성공.');
+					var userid = response.userid;
+					$('#result').text('아이디는 ' + userid + ' 입니다.');
+				} else {
+					alert('이름이 일치하지 않습니다.');
+					location.href = 'http://127.0.0.1:8000/users/find_id'
+
+				}
+			}
+		});
+	});
+});
+</script>
 {% endblock %}
