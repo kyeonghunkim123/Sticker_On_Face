@@ -21,10 +21,10 @@ def sticker_save(request):
     return render(request, "stickers/sticker_save.html")
 
 def sticker_save_open(request):
-<<<<<<< HEAD
     return render(request, "stickers/sticker_save_open.html")
-=======
-    return render(request, "stickers/sticker_save_open.html")
+
+def sticker_select(request):
+    return render(request, "stickers/sticker_select.html")
 
 
 
@@ -106,4 +106,4 @@ def uploadView(request):
 
 
 # SUBPAGE 추가 2023.04.17 끝
->>>>>>> dev
+
