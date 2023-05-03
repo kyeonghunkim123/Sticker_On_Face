@@ -54,6 +54,9 @@ def find_pw_doubleCheck(request):
 def find_pw_result(request):
     return render(request, "users/find_pw_result.html")
 
+def find_pw_doubleCheck2(request):
+    return render(request, "users/find_pw_doubleCheck2.html")
+
 def find_mypw(request):
     print('##########################')
     if request.method == 'POST':
