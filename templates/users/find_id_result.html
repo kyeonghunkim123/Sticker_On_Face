@@ -4,20 +4,19 @@
 {% include 'users/user_menu.html' %}
 <div class="inner">
 	<div class="sign_card">
-		<!-- 해당 페이지 작동 로직 -->
-		<!-- ID를 찾지 못한 경우(default) : id_not_found div태그가 보여짐 -->
-		<!-- ID를 찾은 경우 : id_not_found에 class에 "hidden"을 추가하여 숨기고,
-			id_found div태그의 "hidden" 클래스를 제거하여 id_found div태그가 보여짐 -->
-		<div class="id_not_found">
-			<h2 class="not_found_text">회원님의 정보가<br>존재하지 않습니다.</h2>
-			<button id="signup_button" onclick="location.href='{% url 'signup' %}'">회원가입</button>
-		</div>
+		<!-- 아이디 찾기 성공시 -->
+		<!-- 로직 구현 다 되면 hidden 클래스 지워주기 -->
 		<div class="id_found hidden">
-			<h2 class="not_found_text">회원님의 아이디는<br><strong id="id" style="font-size:30px;">aaaaa10</strong><br />입니다.</h2>
+			<h2 class="not_found_text hidden">회원님의 아이디는<br><strong id="id" style="font-size:30px;">aaaaa10</strong><br />입니다.</h2>
 			<div class="button-group">
 				<button class="login" onclick="location.href='{% url 'login' %}'">LOGIN</button>
 				<button onclick="location.href='{% url 'login' %}'">비밀번호 찾기</button>
 			</div>
+		</div>
+		<!-- 아이디 찾기 실패시 -->
+		<div class="id_not_found">
+			<h2 class="not_found_text">회원님의 정보가<br>존재하지 않습니다.</h2>
+			<button id="signup_button" onclick="location.href='{% url 'signup' %}'">회원가입</button>
 		</div>
 	</div>
 </div>

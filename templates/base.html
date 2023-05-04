@@ -25,8 +25,10 @@
 					</button>
 				<div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
 				  <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-					  <!-- 로그인 시 보여지는 유저 환영메세지 (login시 hidden 클래스 삭제) -->
-					  <li class="nav-item welcome hidden"><span id="username">안녕</span>님 환영합니다.</li>
+					  {% if user.is_authenticated %}
+					  <!-- 로그인 시 나타나는 환영인사 -->
+					  <li class="nav-item welcome"><span id="username">안녕</span>님 환영합니다.</li>
+					  {% endif %}
 					  <li class="nav-item dropdown">
 					  <a class="nav-link dropdown-toggle bold fw-bolder text-dark" href="#" id="navbarScrollingDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						MENU
@@ -35,7 +37,12 @@
 						<li><a class="dropdown-item" href="{% url 'sticker_select' %}">프로젝트</a></li>
 					  </ul>
 					  </li>
-					  	<!-- 로그인 시 화면에서 숨길 것 (login시 hidden 클래스 추가) -->
+					  	{% if user.is_authenticated %}
+					  	<!-- 로그인 시 나타나는 로그아웃 버튼 -->
+					  	<button class="btn btn-link text-dark fw-bolder" style="text-decoration:none;border:none;">
+							LOGOUT
+						</button>
+					  	{% else %}
 					  	<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle fw-bolder text-dark" href="#" id="navbarScrollingDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							LOGIN
@@ -46,10 +53,7 @@
 								<li><a class="dropdown-item" href="{% url 'find_id' %}">계정찾기</a></li>
 							</ul>
 						</li>
-					  	<!-- 로그인 시 나타나는 로그아웃 버튼 (login시 hidden 클래스 삭제) -->
-					  	<button class="btn btn-link hidden text-dark fw-bolder" style="text-decoration:none;border:none;">
-							LOGOUT
-						</button>
+					  	{% endif %}
 				  </ul>
 				</div>
 			  </div>
