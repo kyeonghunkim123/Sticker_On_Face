@@ -10,7 +10,8 @@ urlpatterns = [
     path('signup', uv.signup, name='signup'),
     path('find_id', uv.find_id, name='find_id'),
     path('find_pw', uv.find_pw, name='find_pw'),
-    path('find_pw_failed', uv.find_pw_failed, name='find_pw_failed'),
+    path('find_id_result', uv.find_id_result, name='find_id_result'),
+    path('find_pw_doubleCheck', uv.find_pw_doubleCheck, name='find_pw_doubleCheck'),
 
     path('check_Id/', check_Id, name='check_Id'),
     path('find_myid/', uv.find_myid, name='find_myid'),

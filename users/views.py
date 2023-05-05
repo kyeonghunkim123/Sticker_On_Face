@@ -20,6 +20,8 @@ def signup(request):
 def find_id(request):
     return render(request, "users/find_id.html")
 
+def find_id_result(request):
+    return render(request, "users/find_id_result.html")
 
 def find_myid(request):
     if request.method == 'POST':
@@ -46,8 +48,11 @@ def find_myid(request):
 def find_pw(request):
     return render(request, "users/find_pw.html")
 
-def find_pw_failed(request):
-    return render(request, "users/find_pw_failed.html")
+def find_pw_doubleCheck(request):
+    return render(request, "users/find_pw_doubleCheck.html")
+
+def find_pw_result(request):
+    return render(request, "users/find_pw_result.html")
 
 def find_mypw(request):
     print('##########################')

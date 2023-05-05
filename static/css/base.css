@@ -29,6 +29,13 @@ a::before {
     position: relative;
     display: flex;
 }
+.hidden {
+    display: none !important;
+}
+.welcome {
+    display: inline-block;
+    margin: auto 0;
+}
 /* mainpage */
 .project {
     position: relative;
@@ -156,16 +163,22 @@ th {
     font-size: 16px;
 }
 td {
-    position:relative;
+    position: relative;
     padding: 4px;
     position: relative;
-    width: 200px;
+    width: 300px;
     height: 70px;
     padding: 2px 4px;
     align-items: center;
     flex-direction: space-between;
 }
-#user_ID, #tel {
+.p_result {
+    display: block;
+    width: 300px;
+    height: 20px;
+    text-align: right;
+}
+#user_ID, #tel {s
     display: inline-block;
     width: 214px;
 }
@@ -183,9 +196,9 @@ td {
     height: 100px;
 }
 p#result {
-position:relative;
-right:0;
-color:red !important;
+    position: relative;
+    right:0;
+    color:red !important;
 }
 
 /* Find ID */
@@ -201,6 +214,35 @@ color:red !important;
     box-sizing: border-box;
     border: none;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #AAB9FF;
+}
+
+/* find ID result */
+.not_found_text {
+    display: block;
+    position: relative;
+    width: 400px;
+    height: 100px;
+    margin: 100px auto;
+}
+.button-group {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly !important;
+    margin: 0 auto;
+    width: 400px;
+    height: 42px;
+}
+.button-group button {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-group .login {
     background-color: #AAB9FF;
 }
 
