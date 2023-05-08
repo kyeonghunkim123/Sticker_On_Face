@@ -12,6 +12,7 @@ urlpatterns = [
     path('find_id_result', uv.find_id_result, name='find_id_result'),
     path('find_pw_doubleCheck', uv.find_pw_doubleCheck, name='find_pw_doubleCheck'),
     path('find_pw_doubleCheck2', uv.find_pw_doubleCheck2, name='find_pw_doubleCheck2'),
+    path('member_withdrawal', uv.member_withdrawal, name='member_withdrawal'),
     path('check_Id/', check_Id, name='check_Id'),
     path('find_myid/', uv.find_myid, name='find_myid'),
     path('find_mypw/', uv.find_mypw, name='find_mypw')

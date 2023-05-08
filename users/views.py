@@ -57,6 +57,9 @@ def find_pw_result(request):
 def find_pw_doubleCheck2(request):
     return render(request, "users/find_pw_doubleCheck2.html")
 
+ def member_withdrawal(request):
+     return render(request, "users/member_withdrawal.html")
+
 def find_mypw(request):
     print('##########################')
     if request.method == 'POST':
