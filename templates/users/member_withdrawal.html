@@ -9,17 +9,11 @@
 			<table class="info">
 				<tr>
 					<td>
-						<input id="name" type="text" name="name" placeholder="이름" required/>
+						<input id="name" type="text" name="name" placeholder="아이디" required/>
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<input id="tel" type="tel" name="phone" placeholder="전화번호" required/>
-						<button id="get_code" class="btn-sm">회원 탈퇴</button>
-					</td>
-				</tr>
-				<tr>
-					<td><input type="text" name="code" id="code" placeholder="인증번호"></td>
+					<td><input type="text" name="code" id="code" placeholder="비밀번호"></td>
 				</tr>
 				<tr>
 					<td>
@@ -29,15 +23,11 @@
 				</tr>
 				<tr>
 					<td class="big_td">
-						<button class="next" id='next' type="button" onclick="location.href='{% url 'find_id_result' %}'">NEXT</button>
+						<button class="next" id='next' type="button" onclick="location.href='{% url 'find_id_result' %}'">회원 탈퇴</button>
 					</td>
 				</tr>
 			</table>
-
 		</form>
-		<ul>
-			<li><a href="{% url 'find_pw' %}">회원 탈퇴</a></li>
-		</ul>
 	</div>
 </div>
 {% endblock %}
