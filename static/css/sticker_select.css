@@ -1,0 +1,22 @@
+/* sticker select page */
+
+.container{
+            position: relative;
+            margin: 100px auto;
+            padding: 20px 60px;
+            text-align: center;
+            border: 30 center;
+            position: relative;
+
+		}
+
+.image {
+            display: table-cell;
+            content: center;
+            width: 300px;
+            height: 330px;
+        }
+h4 {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
